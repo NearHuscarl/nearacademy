@@ -54,5 +54,5 @@ but with an additional type `imp` which means improve or polish existing feature
 * test: Adding missing tests or correcting existing tests
 
 
-[NearAcademy]: https://nearhuscarl.github.io/near-academy/
-[education website]: https://nearhuscarl.github.io/near-academy/
+[NearAcademy]: https://nearhuscarl.github.io/nearacademy/
+[education website]: https://nearhuscarl.github.io/nearacademy/

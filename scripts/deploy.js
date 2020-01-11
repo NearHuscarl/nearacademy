@@ -18,6 +18,7 @@ if (!has(process, 'env.npm_config_M')) {
 	// push and deploy on gh-page branch
 	ghpages.publish('dist', {
 		message: commitMessage,
+		repo: 'https://github.com/NearHuscarl/nearacademy'
 	});
 
 	// push source code to master branch
