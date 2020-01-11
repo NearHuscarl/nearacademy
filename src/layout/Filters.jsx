@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Selector from '../components/Selector';
 import styled, { appColors, theme } from '../styles';
 import Input, { InputGroupFloatingButton } from '../components/Input';
 import { H2 } from '../components/Headings';
-import { GreyButton, ButtonChip, ButtonText } from '../components/Buttons';
+import { GreyButton, ButtonChip } from '../components/Buttons';
 
 const FilterBackground = styled.div`
 	background-color: ${appColors.greyLight1};
@@ -44,22 +42,6 @@ const FilterSort = styled(Selector)`
 const Search = styled(InputGroupFloatingButton)`
 	grid-column: 1 / -1;
 	position: relative;
-`;
-const buttonSize = '2rem';
-const ClearButton = styled(ButtonText)`
-	position: absolute;
-	top: calc(((100% - ${buttonSize}) / 2));
-	right: 1rem;
-	width: ${buttonSize};
-	height: ${buttonSize};
-	background-color: ${appColors.greyLight3};
-	color: ${appColors.greyDark2};
-	border-radius: 50%;
-	z-index: 3; /* not sure what bs do to input z-index when focused */
-
-	&:hover {
-		color: ${appColors.white};
-	}
 `;
 const ChipGroup = styled.div`
 	display: flex;
@@ -110,9 +92,6 @@ export default function Filters({ title, subTitle }) {
 						type='text'
 						placeholder='Nhập từ khóa cần tìm kiếm...'
 					/>
-					<ClearButton type='button'>
-						<FontAwesomeIcon icon={faTimes} />
-					</ClearButton>
 				</Search>
 				<ChipGroup>
 					<ButtonChip name='Hóa học' onClick={() => {}} />
