@@ -1,5 +1,5 @@
 {
-	"name": "near-academy",
+	"name": "nearacademy",
 	"version": "1.0.0",
 	"description": "NearAcademy - where you can learn online 24h/7",
 	"author": "NearHuscarl <near.huscarl@gmail.com>",
@@ -48,6 +48,7 @@
 		"react-select": "^3.0.8",
 		"react-slick": "^0.25.2",
 		"react-tabs": "^3.0.0",
+		"reactour": "^1.16.0",
 		"redux": "^4.0.4",
 		"redux-thunk": "^2.3.0",
 		"slick-carousel": "^1.8.1",
