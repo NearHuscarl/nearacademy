@@ -2,7 +2,6 @@ import React from 'react';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Ads from '../components/Ads';
-import Filters from '../layout/Filters';
 import { Line, SizedBox, Bold, FormattedText } from '../components/Common';
 import { H3, H4 } from '../components/Headings';
 import DocumentListSideBar from '../components/DocumentListSideBar';
@@ -57,10 +56,6 @@ const DocumentPreviewPage = () => {
 	return (
 		<main>
 			<Breadcrumb path={[routes.home, routes.document, 'Bài tập Amin - Amino Axit - Peptit - Protein']} />
-			<Filters
-				title='Danh sách tài liệu'
-				subTitle='Có tất cả 300 tài liệu trong danh sách'
-			/>
 			<ContentContainer>
 				<Content>
 					<ColLeft>
