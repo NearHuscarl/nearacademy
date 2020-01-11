@@ -3,6 +3,22 @@ import { darken, lighten, transparentize, opacity } from './utilities/colors';
 
 export { createGlobalStyle };
 
+const pxToEm = (pixel) => (pixel / 16/* px */) * 1/* em */;
+
+/**
+ * 
+ * @param {*} size 
+ * @param {*} content 
+ * Usage:
+ * ```
+ * ${media(850)} {
+      font-size: 18px;
+    }
+ * ```
+ */
+export const media = (size) =>
+	`@media only screen and (max-width: (${pxToEm(size)}em))`;
+
 export const curves = {
 	easeOutQuint: 'cubic-bezier(0.23, 1, 0.32, 1);',
 	easeOutCirc: 'cubic-bezier(0.075, 0.82, 0.165, 1);',

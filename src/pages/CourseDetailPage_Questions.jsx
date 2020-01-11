@@ -8,7 +8,7 @@ const H1Small = styled(H1)`
 	margin-bottom: 1rem;
 `;
 
-export default function CourseDetailPageComment() {
+export default function CourseDetailPageQuestions() {
 	return (
 		<section>
 			<H1Small>Bình luận & Hỏi đáp</H1Small>

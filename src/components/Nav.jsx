@@ -31,15 +31,19 @@ const StyledNav = styled.nav`
 	ul {
 		/* override bootstrap margin-bottom: 1rem; */
 		margin-bottom: 0;
-
 		display: flex;
+		flex-wrap: wrap;
 		width: 100%;
-		height: 3.5rem;
+		height: auto;
 	}
 `;
 
 const NavLink = styled(Link)`
-	padding: 0 1.5rem;
+	padding: .6rem 1.5rem;
+
+	li {
+		height: 3.3rem;
+	}
 
 	span {
 		display: flex;
@@ -106,7 +110,6 @@ const StyledNavItem = styled(NavItem)`
 	display: flex;
 	justify-content: center;
 	align-items: stretch;
-	height: auto;
 	cursor: pointer;
 	transition: all 0.15s;
 

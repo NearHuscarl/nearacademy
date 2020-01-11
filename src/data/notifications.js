@@ -39,7 +39,7 @@ const notifications = [
 	{
 		image: logo,
 		body:
-			'NearAcademy giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
+			'[NearAcademy] giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
 		date: '4 tháng trước',
 	},
 ];

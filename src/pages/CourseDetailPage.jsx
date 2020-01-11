@@ -4,8 +4,8 @@ import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
 import CourseHeader from '../layout/CourseHeader';
 import VideoPlayer from '../components/VideoPlayer';
 import CourseProgressList from '../components/CourseProgressList';
-import CourseDetailPageSummary from './CourseDetailPage_Summary';
-import CourseDetailPageComment from './CourseDetailPage_Comment';
+import CourseDetailPageOverview from './CourseDetailPage_Overview';
+import CourseDetailPageQuestions from './CourseDetailPage_Questions';
 import CourseDetailPageAnnouncement from './CourseDetailPage_Announcement';
 import CourseDetailPageFlag from './CourseDetailPage_Flag';
 import styled from '../styles';
@@ -46,10 +46,10 @@ const CourseDetailPage = () => {
 							<Tab>Thông báo</Tab>
 						</TabList>
 						<TabPanel>
-							<CourseDetailPageSummary course={courseDetail} />
+							<CourseDetailPageOverview course={courseDetail} />
 						</TabPanel>
 						<TabPanel>
-							<CourseDetailPageComment />
+							<CourseDetailPageQuestions />
 						</TabPanel>
 						<TabPanel>
 							<CourseDetailPageFlag />

@@ -43,7 +43,7 @@ const Paragraph = styled(FormattedText)`
 	white-space: pre-line;
 `;
 
-export default function CourseDetailPageSummary({ course }) {
+export default function CourseDetailPageOverview({ course }) {
 	return (
 		<Section>
 			<Summary>
@@ -81,6 +81,6 @@ export default function CourseDetailPageSummary({ course }) {
 	);
 }
 
-CourseDetailPageSummary.propTypes = {
+CourseDetailPageOverview.propTypes = {
 	course: courseDetailProps.isRequired,
 };

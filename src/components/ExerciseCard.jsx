@@ -34,6 +34,7 @@ const Container = styled(Card)`
 `;
 const Description = styled.p`
 	font-weight: 600;
+	font-size: 1.3rem;
 `;
 const Date = styled.p`
 	font-size: 1.1rem;
