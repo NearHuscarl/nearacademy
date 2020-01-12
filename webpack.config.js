@@ -3,9 +3,13 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const packageJson = require('./package.json');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+const repoName = packageJson.repository.split('/').pop().replace('.git', '')
 
 module.exports = (env) => {
 	const isProduction = env === 'production';
@@ -23,7 +27,7 @@ module.exports = (env) => {
 			// add this line alongside with dev-server.historyApiFallback = true
 			// to make dev-server reload when on nested root
 			// see https://github.com/ReactTraining/react-router/issues/676#issuecomment-174073981
-			publicPath: isProduction ? '/nearacademy/' : '/',
+			publicPath: isProduction ? `/${repoName}/` : '/',
 		},
 		module: {
 			rules: [
@@ -86,6 +90,9 @@ module.exports = (env) => {
 		plugins: (isProduction
 			? []
 			: [ /* new BundleAnalyzerPlugin() */ ]).concat([
+			new webpack.DefinePlugin({
+				"process.REPO_NAME": JSON.stringify(repoName),
+			}),
 			new HtmlWebpackPlugin({
 				filename: 'index.html',
 				template: 'public/index.html',

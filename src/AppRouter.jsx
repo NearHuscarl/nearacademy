@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import routes from './routes';
-import constants from './constants';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './layout/Header';
 import Footer from './layout/Footer';
@@ -57,7 +56,7 @@ const AppRouter = () => {
 	} = routes;
 
 	return (
-		<BrowserRouter basename={`/${constants.repoName}/`}>
+		<BrowserRouter basename={`/${process.REPO_NAME}/`}>
 			<Route component={ScrollToTop} />
 			<Route
 				render={({ location }) => {
