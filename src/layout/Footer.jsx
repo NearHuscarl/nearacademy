@@ -69,7 +69,7 @@ const TopAppImage = styled.img`
 
 const FooterBottom = styled.div`
 	padding: 4rem;
-	background-color: ${appColors.secondary};
+	background-color: ${appColors.darkBlue};
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

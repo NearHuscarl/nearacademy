@@ -41,7 +41,7 @@ export const RadioGroup = styled(MaterialRadioGroup)`
 
 	/* radio button when checked */
 	.MuiRadio-colorPrimary.Mui-checked {
-		color: ${appColors.udemyBlue};
+		color: ${appColors.primary};
 	}
 `;
 

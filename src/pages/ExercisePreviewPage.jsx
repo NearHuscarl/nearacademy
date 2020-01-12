@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Tab, Tabs, TabList, TabPanel } from '../components/Tabs';
-import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
+import ExerciseCarousel from '../components/ExerciseCarousel';
 import { exerciseProps, exerciseRankProps } from '../utilities/proptypes';
 import ExercisePreviewSection from '../components/ExercisePreviewSection';
 import ScoreCard from '../components/ScoreCard';
@@ -73,22 +73,19 @@ function ExercisePreviewPage({
 					</Tabs>
 					<SizedBox height={3} />
 					<TeacherDetail teacher={chemistryTeacher} />
-					<Recommend>
-						<ExerciseCarousel
-							list={chemistryExercises}
-							title='Các bài tập có liên quan'
-						/>
-						<div className='mb-md' />
-						<ExerciseCarousel
-							list={nationalExams}
-							title='Các bài tập nổi bật'
-						/>
-						<div className='mb-md' />
-						<ExerciseCarousel
-							list={nationalExams}
-							title='Các bài tập mới nhất'
-						/>
-					</Recommend>
+					<SizedBox height={3} />
+					<ExerciseCarousel
+						list={chemistryExercises}
+						title='Các bài tập có liên quan'
+					/>
+					<ExerciseCarousel
+						list={nationalExams}
+						title='Các bài tập nổi bật'
+					/>
+					<ExerciseCarousel
+						list={nationalExams}
+						title='Các bài tập mới nhất'
+					/>
 				</Content>
 			</ContentContainer>
 		</>

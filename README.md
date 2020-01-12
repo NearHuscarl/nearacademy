@@ -1,4 +1,4 @@
-# [NearAcademy]
+# [Near Academy]
 
 An [education website] to help students to pass the gruesome national exams by
 providing the latest sample tests and exercises with the support from a group of
@@ -54,5 +54,5 @@ but with an additional type `imp` which means improve or polish existing feature
 * test: Adding missing tests or correcting existing tests
 
 
-[NearAcademy]: https://nearhuscarl.github.io/nearacademy/
+[Near Academy]: https://nearhuscarl.github.io/nearacademy/
 [education website]: https://nearhuscarl.github.io/nearacademy/

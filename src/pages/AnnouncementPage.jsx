@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Ads from '../components/Ads';
-import { SizedBox, FormattedText } from '../components/Common';
+import { Link, SizedBox, FormattedText } from '../components/Common';
 import ContentContainer from '../layout/ContentContainer';
 import Breadcrumb, {
 	routes,
@@ -10,7 +9,7 @@ import Breadcrumb, {
 } from '../components/Breadcrumb';
 import VideoPlayer from '../components/VideoPlayer';
 import { H1, H3 } from '../components/Headings';
-import styled, { appColors, theme } from '../styles';
+import styled, { theme } from '../styles';
 import announcements from '../data/announcements';
 import VideoThumbnail from '../../public/images/notads-5.png';
 
@@ -23,8 +22,8 @@ const Thumbnail = styled.img`
 	margin-right: 0.8rem;
 `;
 const Title = styled(Link)`
-	color: ${appColors.udemyBlue};
 	font-size: 1.2rem;
+	font-weight: normal;
 	line-height: 1.4;
 	display: inline-block;
 `;

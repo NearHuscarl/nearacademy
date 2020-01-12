@@ -6,8 +6,13 @@ import { exerciseProps } from '../utilities/proptypes';
 import styled, { appColors } from '../styles';
 import { H3 } from './Headings';
 
-export const Recommend = styled.div`
-	padding-top: 3rem;
+const Container = styled.section`
+	padding: 0 3rem;
+	padding-top: 1rem;
+
+	h3 {
+		margin-left: -3rem;
+	}
 `;
 
 const StyledSlider = styled(Slider)`
@@ -65,30 +70,32 @@ NextButton.defaultProps = {
 
 const resonsiveSettings = [
 	{
-		breakpoint: 860,
+		breakpoint: 940,
 		settings: {
 			slidesToShow: 3,
 		},
 	},
 	{
-		breakpoint: 640,
+		breakpoint: 730,
 		settings: {
 			draggable: true,
 			slidesToShow: 2,
+			arrows: false,
 		},
 	},
 	{
-		breakpoint: 430,
+		breakpoint: 500,
 		settings: {
 			draggable: true,
 			slidesToShow: 1,
+			arrows: false,
 		},
 	},
 ];
 
 export default function ExerciseCarousel({ title, list, slidesToShow }) {
 	return (
-		<section>
+		<Container>
 			<H3 className='mb-0'>{title}</H3>
 			<StyledSlider
 				slidesToShow={slidesToShow}
@@ -109,7 +116,7 @@ export default function ExerciseCarousel({ title, list, slidesToShow }) {
 					/>
 				))}
 			</StyledSlider>
-		</section>
+		</Container>
 	);
 }
 

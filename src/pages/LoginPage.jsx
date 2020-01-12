@@ -37,14 +37,14 @@ export const Container = styled.div`
 	}
 
 	.register {
-		color: ${appColors.udemyBlue};
+		color: ${appColors.primary};
 		font-weight: 600;
 		transition: color 0.25s;
 
 		&:hover,
 		&:active,
 		&:focus {
-			color: ${mixins.darken(appColors.udemyBlue)};
+			color: ${mixins.darken(appColors.primary)};
 		}
 	}
 `;

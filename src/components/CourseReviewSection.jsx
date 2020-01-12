@@ -22,7 +22,7 @@ const ReviewBar = styled(PercentageBar)`
 	}
 `;
 const Percent = styled.div`
-	color: ${appColors.udemyBlue};
+	color: ${appColors.primaryDark};
 	font-size: 1.1rem;
 `;
 
@@ -123,7 +123,7 @@ export default function CourseReviewSection({ review }) {
 			</Summary>
 			<Search>
 				<H2>Các ý kiến đánh giá</H2>
-				<SearchBar placeholder='Tìm ý kiến đánh giá...' width={35} />
+				<SearchBar placeholder='Tìm ý kiến đánh giá...' width={30} />
 			</Search>
 			<SizedBox height={1.5} />
 			{review.reviews.map((r, i) => {

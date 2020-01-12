@@ -24,7 +24,7 @@ function standingTab(standing) {
 	return (
 		<>
 			<Search>
-				<SearchBar placeholder='Tìm kiếm người dùng...' width={37.5} />
+				<SearchBar placeholder='Tìm kiếm người dùng...' width={28} />
 			</Search>
 			{standing}
 			<SizedBox height={4.5} />

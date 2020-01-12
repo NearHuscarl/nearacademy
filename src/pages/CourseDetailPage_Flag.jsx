@@ -53,7 +53,7 @@ export default function CourseDetailPageFlag() {
 		<div>
 			<Header>
 				<H1Small>{`Đánh dấu (${flags.length})`}</H1Small>
-				<SearchBar placeholder='Tìm nội dung đánh dấu...' width={35} />
+				<SearchBar placeholder='Tìm nội dung đánh dấu...' width={30} />
 			</Header>
 			<ul>
 				{flags.map((f, i) => {

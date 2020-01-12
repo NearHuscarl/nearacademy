@@ -7,8 +7,11 @@ import { StandingSideBar } from '../components/ExerciseStandingSideBar';
 import ExerciseList from '../components/ExerciseList';
 import Pagination from '../components/Pagination';
 import { SizedBox } from '../components/Common';
-import BreadCrumb, { routes, breadCrumbPathProps } from '../components/Breadcrumb';
-import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
+import BreadCrumb, {
+	routes,
+	breadCrumbPathProps,
+} from '../components/Breadcrumb';
+import ExerciseCarousel from '../components/ExerciseCarousel';
 import ContentContainer from '../layout/ContentContainer';
 import { exerciseProps, rankProps } from '../utilities/proptypes';
 import styled from '../styles';
@@ -66,17 +69,21 @@ export const ExercisePageBuilder = ({
 				</ColRight>
 			</Content>
 			<Pagination />
-			<Recommend>
-				{recommends.map((r, i) => {
-					const key = i;
-					return (
-						<React.Fragment key={key}>
-							<ExerciseCarousel list={r} title='Các bài tập nổi bật' e />
-							{i !== recommends.length - 1 && <div className='mb-md' />}
-						</React.Fragment>
-					);
-				})}
-			</Recommend>
+			<SizedBox height={2.5} />
+			{recommends.map((r, i) => {
+				const key = i;
+				return (
+					<ExerciseCarousel
+						key={key}
+						list={r}
+						title={
+							i % 2 === 0
+								? 'Các bài tập mới nhất'
+								: 'Các bài tập nổi bật'
+						}
+					/>
+				);
+			})}
 		</ContentContainer>
 	</Main>
 );

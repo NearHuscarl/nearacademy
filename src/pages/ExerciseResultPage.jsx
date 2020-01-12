@@ -6,7 +6,7 @@ import Card from '../components/Card';
 import QuestionGrid from '../components/QuestionGrid';
 import CommentSection from '../components/CommentSection';
 import Ads from '../components/Ads';
-import ExerciseCarousel, { Recommend } from '../components/ExerciseCarousel';
+import ExerciseCarousel from '../components/ExerciseCarousel';
 import { Line, SizedBox } from '../components/Common';
 import { H2, H3, H4 } from '../components/Headings';
 import { WhiteButton } from '../components/Buttons';
@@ -163,18 +163,18 @@ const ExerciseResultPage = ({
 						<CommentSection />
 					</DetailCol2>
 					<DetailCol3>
-						<QuestionGrid questionCount={questions.length} exerciseId={id} />
+						<QuestionGrid
+							questionCount={questions.length}
+							exerciseId={id}
+						/>
 						<Ads />
 					</DetailCol3>
 				</DetailContent>
 			</Detail>
-			<Recommend>
-				<ExerciseCarousel list={nationalExams} title='Bạn có thể quan tâm' />
-				<div className='mb-md' />
-				<ExerciseCarousel list={nationalExams} title='Các bài tập nổi bật' />
-				<div className='mb-md' />
-				<ExerciseCarousel list={nationalExams} title='Các bài tập mới nhất' />
-			</Recommend>
+			<SizedBox height={2.5} />
+			<ExerciseCarousel list={nationalExams} title='Bạn có thể quan tâm' />
+			<ExerciseCarousel list={nationalExams} title='Các bài tập nổi bật' />
+			<ExerciseCarousel list={nationalExams} title='Các bài tập mới nhất' />
 			<SizedBox height={7} />
 		</ContentContainer>
 	);
