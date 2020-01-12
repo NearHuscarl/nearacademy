@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { transparentize } from '../utilities/colors';
 import styled, { appColors, theme } from '../styles';
 import routes from '../routes';
 
 const navItems = {
+	home: 'Home',
 	khoaHoc: 'Khóa học',
 	gioiThieu: 'Giới thiệu',
 	giaoVien: 'Giáo viên',
@@ -20,15 +20,16 @@ const navItems = {
 };
 
 const NavBackground = styled.div`
-	background-color: ${transparentize(appColors.primaryLight, 0.5)};
+	background-color: ${appColors.greyDark3};
 	font-family: ${theme.primaryFont};
 `;
-
 const StyledNav = styled.nav`
+	font-family: ${theme.primaryFont};
 	max-width: ${theme.pageContainerWidth};
 	margin: 0 auto;
 
 	ul {
+		background-color: ${appColors.greyDark3};
 		/* override bootstrap margin-bottom: 1rem; */
 		margin-bottom: 0;
 		display: flex;
@@ -39,11 +40,7 @@ const StyledNav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-	padding: .6rem 1.5rem;
-
-	li {
-		height: 3.3rem;
-	}
+	padding: 0.6rem 1.5rem;
 
 	span {
 		display: flex;
@@ -69,22 +66,58 @@ const NavLink = styled(Link)`
 	}
 `;
 
-function NavItem({ name, className, route, setSelectedItem, children }) {
+const NavItemContainer = styled.li`
+	text-align: center;
+	color: ${appColors.white};
+	text-transform: uppercase;
+	font-weight: 600;
+	border-left: solid 1px ${appColors.greyDark2};
+
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	cursor: pointer;
+	transition: all 0.15s;
+
+	${(props) => props.highlight && '&,'}
+	&:hover {
+		background-color: ${appColors.primaryDark};
+		border-left: solid 1px ${appColors.primaryDark};
+		color: ${appColors.white};
+	}
+
+	${(props) => {
+		if (props.home) {
+			return `
+				flex: 0;
+				padding: 0.5rem 1rem;
+				a {
+					padding: 0;
+				}
+			`;
+		}
+		return '';
+	}}
+`;
+
+function NavItem({
+	home,
+	highlight,
+	name,
+	className,
+	route,
+	setSelectedItem,
+	children,
+}) {
 	return (
-		<li className={className}>
+		<NavItemContainer highlight={highlight} home={home} className={className}>
 			<NavLink
 				to={route}
-				// https://stackoverflow.com/a/20249560/9449426
-				// normal text becomes bold text when hovered, but bold text is more densed
-				// so hovering will make the container width shrinking. Workaround is to define
-				// a::after psuedo element to reserve extra space by adding ' |' character
-				// after the title tag (which will be passed to ::after's content)
-				title={name ? name + '|' : ''}
-				onClick={() => setSelectedItem(() => name)}
+				onClick={() => setSelectedItem(() => name || navItems.home)}
 			>
 				<span>{name || children}</span>
 			</NavLink>
-		</li>
+		</NavItemContainer>
 	);
 }
 
@@ -102,48 +135,6 @@ NavItem.defaultProps = {
 	children: null,
 };
 
-const StyledNavItem = styled(NavItem)`
-	text-align: center;
-	color: ${appColors.greyDark3};
-	text-transform: uppercase;
-
-	display: flex;
-	justify-content: center;
-	align-items: stretch;
-	cursor: pointer;
-	transition: all 0.15s;
-
-	${(props) => props.highlight && '&,'}
-	&:hover {
-		background-color: ${appColors.primaryDark};
-		color: ${appColors.white};
-		font-weight: 600;
-	}
-
-	${(props) => {
-		if (props.home) {
-			return `
-				flex: 0;
-				background-color: ${appColors.greyDark3};
-				padding: 0.5rem 1rem;
-				color: ${appColors.white};
-
-				a {
-					padding: 0;
-				}
-			`;
-		}
-		if (props.primary) {
-			return `
-				background-color: ${appColors.primary};
-				color: ${appColors.white};
-				font-weight: 600;
-			`;
-		}
-		return '';
-	}}
-`;
-
 export default function Nav() {
 	const [selectedItem, setSelectedItem] = useState(navItems.khoaHoc);
 
@@ -151,56 +142,58 @@ export default function Nav() {
 		<NavBackground>
 			<StyledNav>
 				<ul>
-					<StyledNavItem
+					<NavItem
 						route={routes.home.path}
 						home
+						highlight={navItems.home === selectedItem}
 						setSelectedItem={setSelectedItem}
 					>
 						<FontAwesomeIcon icon={faHome} />
-					</StyledNavItem>
-					<StyledNavItem
+					</NavItem>
+					<NavItem
 						name={navItems.khoaHoc}
 						route={routes.courses.path}
 						primary
+						highlight={navItems.khoaHoc === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.gioiThieu}
 						route={routes.intro.path}
 						highlight={navItems.gioiThieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.giaoVien}
 						route={routes.teacher.path}
 						highlight={navItems.giaoVien === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.bangXepHang}
 						route={routes.standing.path}
 						highlight={navItems.bangXepHang === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.baiTap}
 						route={routes.exercise.path}
 						highlight={navItems.baiTap === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.thiThu}
 						route={routes.exam.path}
 						highlight={navItems.thiThu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.taiLieu}
 						route={routes.document.path}
 						highlight={navItems.taiLieu === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
-					<StyledNavItem
+					<NavItem
 						name={navItems.hoiDap}
 						route={routes.question.path}
 						highlight={navItems.hoiDap === selectedItem}

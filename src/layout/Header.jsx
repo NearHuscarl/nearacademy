@@ -137,8 +137,8 @@ function Header() {
 			<Main>
 				<Logo />
 				<SearchBar
-					placeholder='Nhập ID của câu hỏi cần xem đáp án và lời giải...'
-					width={35}
+					placeholder='Search for courses, exercises, documents...'
+					width={32}
 				/>
 				<CartButtonText
 					type='button'

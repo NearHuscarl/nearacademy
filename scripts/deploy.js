@@ -4,6 +4,9 @@ const shell = require('shelljs');
 const has = require('lodash/has');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const ghpages = require('gh-pages');
+const packageJson = require('../package.json');
+
+console.log(packageJson.repository);
 
 if (!has(process, 'env.npm_config_M')) {
 	console.error('----------ERROR----------');
@@ -18,7 +21,7 @@ if (!has(process, 'env.npm_config_M')) {
 	// push and deploy on gh-page branch
 	ghpages.publish('dist', {
 		message: commitMessage,
-		repo: 'https://github.com/NearHuscarl/nearacademy'
+		repo: packageJson.repository,
 	});
 
 	// push source code to master branch

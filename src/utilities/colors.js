@@ -44,4 +44,16 @@ function opacity(color, value) {
 	return tnColor.toString();
 }
 
-export { lighten, darken, transparentize, opacity };
+/**
+ *
+ * @param {*} color1 first color to mix
+ * @param {*} color2 second color to mix
+ * @param {*} amount weight factor between 2 colors
+ */
+function mix(color1, color2, amount = 50) {
+	return Tinycolor
+		.mix(color1, color2, amount)
+		.toString();
+}
+
+export { lighten, darken, transparentize, opacity, mix };
