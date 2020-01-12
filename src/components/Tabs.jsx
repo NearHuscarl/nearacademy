@@ -10,11 +10,11 @@ const Tabs = styled(ReactTabs)`
 	}
 
 	.react-tabs__tab {
+		font-weight: 600;
 		border: none;
 
 		&--selected {
-			color: ${appColors.primaryDark};
-			font-weight: 600;
+			color: ${appColors.primary};
 			border-bottom: solid 0.2rem ${appColors.primary};
 		}
 	}

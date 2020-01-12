@@ -89,8 +89,8 @@ const BuyToday = styled.div`
 
 	.icon {
 		flex: 0 0 4.5rem;
-		background-color: ${appColors.primaryDark};
-		border: solid 1px ${appColors.primaryDark};
+		background-color: ${appColors.primary};
+		border: solid 1px ${appColors.primary};
 		border-bottom-left-radius: ${theme.borderRound};
 		border-top-left-radius: ${theme.borderRound};
 		color: ${appColors.white};
@@ -110,7 +110,7 @@ const BuyToday = styled.div`
 
 		strong {
 			font-weight: 600;
-			color: ${appColors.primaryDark};
+			color: ${appColors.primary};
 		}
 	}
 `;

@@ -48,7 +48,7 @@ const ProgressBar = styled(TextSpan)`
 		height: 100%;
 
 		border-radius: inherit;
-		background-color: ${appColors.primaryDark};
+		background-color: ${appColors.primary};
 		transition: width 0.25s;
 	}
 `;

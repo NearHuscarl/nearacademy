@@ -81,8 +81,8 @@ const NavItemContainer = styled.li`
 
 	${(props) => props.highlight && '&,'}
 	&:hover {
-		background-color: ${appColors.primaryDark};
-		border-left: solid 1px ${appColors.primaryDark};
+		background-color: ${appColors.primary};
+		border-left: solid 1px ${appColors.primary};
 		color: ${appColors.white};
 	}
 

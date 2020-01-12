@@ -6,7 +6,7 @@ const H = styled.h1`
 	color: ${appColors.greyDark3};
 	line-height: 1.4;
 
-	${(props) => props.primary && `color: ${appColors.primaryDark};`}
+	${(props) => props.primary && `color: ${appColors.primary};`}
 `;
 
 const Heading1 = H.withComponent('h1');

@@ -32,7 +32,7 @@ const Flag = styled.div`
 	right: calc(-${flagSize} / 4);
 
 	border-radius: 50%;
-	background-color: ${appColors.primaryDark};
+	background-color: ${appColors.primary};
 	color: ${appColors.white};
 
 	width: ${flagSize};

@@ -13,7 +13,7 @@ const StyledLink = styled(Link)`
 		font-size: 2.25rem;
 
 		.orange {
-			color: ${appColors.primaryDark};
+			color: ${appColors.primary};
 		}
 	}
 

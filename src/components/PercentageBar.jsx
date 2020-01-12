@@ -5,7 +5,7 @@ const PercentageBar = styled.div`
 
 	/* answer percentage overlay of this answer */
 	&::before {
-		background-color: ${appColors.primaryDark};
+		background-color: ${appColors.primary};
 
 		width: ${(props) => props.value}%;
 		height: 100%;

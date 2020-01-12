@@ -43,7 +43,7 @@ const TopLink = styled(Link)`
 	&:hover,
 	&:focus {
 		outline: none;
-		color: ${appColors.primaryDark};
+		color: ${appColors.primary};
 		/* override bs hover */
 		text-decoration: none;
 	}

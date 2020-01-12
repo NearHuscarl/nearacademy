@@ -27,9 +27,9 @@ export const curves = {
 };
 
 export const appColors = {
-	primary: '#ffc600',
-	primaryDark: '#fc9e31',
-	primaryLight: '#ffd099',
+	primaryDark: '#1d779f',
+	primary: '#2AABE4',
+	primaryLight: '#94d5f1',
 	secondary: '#2e293b',
 	tertiary: '#c9e167',
 	red: '#e02020',

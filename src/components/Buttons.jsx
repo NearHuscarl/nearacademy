@@ -99,7 +99,7 @@ const ButtonBase = styled.button`
 	font-size: 1.35rem;
 	/* text-transform: uppercase; */
 	color: ${appColors.white};
-	background-color: ${appColors.primaryDark};
+	background-color: ${appColors.primary};
 	border-radius: ${theme.borderRound};
 	overflow: hidden;
 
@@ -116,7 +116,7 @@ const Button = styled(ButtonBase)`
 
 	&:hover {
 		color: ${appColors.white};
-		background-color: ${appColors.primary};
+		background-color: ${appColors.primaryDark};
 	}
 	&:focus {
 		box-shadow: none; /* override bs */
@@ -157,19 +157,13 @@ export const PrimaryWhiteButton = styled(WhiteButton)`
 	&:active,
 	&:focus,
 	&:hover {
-		border-color: ${appColors.primaryDark};
-		background-color: ${appColors.primaryDark};
+		border-color: ${appColors.primary};
+		background-color: ${appColors.primary};
 		color: ${appColors.white};
 	}
 `;
 
 export const OrangeButton = styled(Button)`
-	border-color: ${appColors.primaryDark};
-	background-color: ${appColors.primaryDark};
-	color: ${appColors.white};
-`;
-
-export const YellowButton = styled(Button)`
 	border-color: ${appColors.primary};
 	background-color: ${appColors.primary};
 	color: ${appColors.white};
@@ -178,7 +172,7 @@ export const YellowButton = styled(Button)`
 export const OpaqueButton = styled(Button)`
 	border-color: transparent;
 	background-color: ${mixins.opacity(appColors.primaryLight, 0.5)};
-	color: ${appColors.greyDark2};
+	color: ${mixins.darken(appColors.primary)};
 `;
 
 export const GreyButton = styled(Button)`
@@ -207,7 +201,7 @@ const ButtonChipContainer = styled(ButtonBase)`
 		transform: translateY(0.05rem);
 	}
 	.button:hover {
-		color: ${appColors.primaryDark};
+		color: ${appColors.primary};
 	}
 `;
 
@@ -242,7 +236,7 @@ export const ButtonLink = styled.button`
 	&:hover,
 	&:focus {
 		outline: none;
-		color: ${appColors.primaryDark};
+		color: ${appColors.primary};
 		/* override bs hover */
 		text-decoration: none;
 	}
@@ -263,14 +257,14 @@ export const ButtonText = styled.button`
 	color: inherit;
 	font-size: inherit;
 	transition: all 0.2s;
-	outline: ${appColors.primaryDark};
+	outline: ${appColors.primary};
 	padding: 0;
 
 	&:hover,
 	&:focus,
 	&:active {
 		outline: none;
-		color: ${appColors.primaryDark};
+		color: ${appColors.primary};
 	}
 `;
 

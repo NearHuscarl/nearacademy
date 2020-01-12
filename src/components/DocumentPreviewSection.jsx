@@ -2,7 +2,7 @@ import React from 'react';
 import { faPlay, faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { documentProps } from '../utilities/proptypes';
-import { YellowButton, OpaqueButton } from './Buttons';
+import Button, { OpaqueButton } from './Buttons';
 import { H2 } from './Headings';
 import styled, { theme, helperStyles } from '../styles';
 import { Bold } from './Common';
@@ -53,10 +53,10 @@ export default function DocumentPreviewSection({ document }) {
 				<Bold as='span'>{document.downloads.toLocaleString()}</Bold>
 			</Stats>
 			<div>
-				<YellowButton type='button'>
+				<Button type='button'>
 					<FontAwesomeIcon icon={faPlay} />
 					<span>Xem trực tuyến</span>
-				</YellowButton>
+				</Button>
 				<OpaqueButton type='button'>
 					<FontAwesomeIcon icon={faDownload} />
 					<span>Tải tài liệu</span>
