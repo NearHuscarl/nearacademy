@@ -8,6 +8,7 @@ import { SearchBar } from '../components/Input';
 import { ButtonText } from '../components/Buttons';
 import ProfileTooltip from '../components/ProfileTooltip';
 import NotificationTooltip from '../components/NotificationTooltip';
+import StickyHeader from '../components/StickyHeader';
 import styled, { appColors, theme } from '../styles';
 import routes from '../routes';
 import { activeUser } from '../data/users';
@@ -149,7 +150,9 @@ function Header() {
 					<span className='counter'>(5)</span>
 				</CartButtonText>
 			</Main>
-			<Nav />
+			<StickyHeader>
+				<Nav />
+			</StickyHeader>
 		</HeaderContainer>
 	);
 }
