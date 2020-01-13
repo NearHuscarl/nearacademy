@@ -18,9 +18,9 @@ const StyledLink = styled(Link)`
 	}
 
 	img {
-		height: 2.25rem;
+		height: 3.5rem;
 		margin-right: 0.5rem;
-		margin-top: -0.5rem;
+		margin-top: -0.75rem;
 	}
 `;
 

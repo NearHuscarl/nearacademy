@@ -1,13 +1,13 @@
 # [Near Academy]
 
-An [education website] to help students to pass the gruesome national exams by
+An [education website] to help students prepare for the gruesome national exams by
 providing the latest sample tests and exercises with the support from a group of
 volunteering and talented teachers. Our mantra is: education should be free* and
 accessible for anyone, just like communism.
 
-*except teachers supporting. They need something to eat.
+*except teacher supporting. They need something to eat.
 
-## Benefits
+## Features
 
 ### For Students
 
