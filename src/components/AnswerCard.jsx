@@ -88,17 +88,20 @@ export default function AnswerCard({ answer }) {
 		<Card>
 			<H3>{question}</H3>
 			<SizedBox height={1} />
-			{answers.map((a, i) => (
-				<React.Fragment key={a.text}>
-					<AnswerPercentageBar
-						answer={userAnswer === i}
-						trueAnswer={answer.answer === i}
-						answerDetail={a.text}
-						percentage={a.percentage}
-					/>
-					<SizedBox height={1} />
-				</React.Fragment>
-			))}
+			{answers.map((a, i) => {
+				const key = i;
+				return (
+					<React.Fragment key={key}>
+						<AnswerPercentageBar
+							answer={userAnswer === i}
+							trueAnswer={answer.answer === i}
+							answerDetail={a.text}
+							percentage={a.percentage}
+						/>
+						<SizedBox height={1} />
+					</React.Fragment>
+				);
+			})}
 		</Card>
 	);
 }

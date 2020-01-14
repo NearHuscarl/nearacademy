@@ -71,7 +71,7 @@ function getFoldedContentComponent(content) {
 							</div>
 							{c.summary && <Summary>{c.summary}</Summary>}
 						</Leading>
-						{c.preview ? <PreviewButton>Xem thử</PreviewButton> : <div />}
+						{c.preview ? <PreviewButton>Preview</PreviewButton> : <div />}
 						<span>{c.length}</span>
 					</FoldedContent>
 				);
@@ -119,9 +119,9 @@ export default function CourseSummaryList({ course }) {
 	return (
 		<div>
 			<Header>
-				<H2>Nội dung khóa học</H2>
-				<ButtonText type='button'>Hiện tất cả</ButtonText>
-				<span>{`${course.totalVideo} bài giảng`}</span>
+				<H2>Content</H2>
+				<ButtonText type='button'>Expand all</ButtonText>
+				<span>{`${course.totalVideo} lectures`}</span>
 				<span>{course.videoLength}</span>
 			</Header>
 			<List>
@@ -135,7 +135,7 @@ export default function CourseSummaryList({ course }) {
 							foldedContent={getFoldedContentComponent(c.videos)}
 						>
 							<H4>{c.title}</H4>
-							<span>{`${c.videos.length} bài giảng`}</span>
+							<span>{`${c.videos.length} lectures`}</span>
 							<span>{c.length}</span>
 						</UdemyFoldableListItem>
 					);

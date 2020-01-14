@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import range from 'lodash/range';
-import classNames from 'classnames';
-import { PrimaryWhiteButton } from './Buttons';
+import { WhiteButton } from './Buttons';
 import styled from '../styles';
 
 const Container = styled.div`
@@ -24,7 +22,7 @@ const DotDotDot = styled.div`
 function getButton(index, currentPage, setCurrentPage) {
 	const selectedPage = currentPage === index;
 	return (
-		<PrimaryWhiteButton
+		<WhiteButton
 			key={index}
 			type='button'
 			dense
@@ -32,38 +30,30 @@ function getButton(index, currentPage, setCurrentPage) {
 			onClick={() => setCurrentPage(() => index)}
 		>
 			{index}
-		</PrimaryWhiteButton>
+		</WhiteButton>
 	);
 }
 
-export default function Pagination({ className }) {
+export default function Pagination() {
 	const [currentPage, setCurrentPage] = useState(1);
 
 	return (
-		<Container className={classNames({ [className]: className !== '' })}>
-			<PrimaryWhiteButton type='button' dense>
-				đầu
-			</PrimaryWhiteButton>
-			<PrimaryWhiteButton type='button' dense>
-				trước
-			</PrimaryWhiteButton>
+		<Container>
+			<WhiteButton type='button' dense>
+				First
+			</WhiteButton>
+			<WhiteButton type='button' dense>
+				Prev
+			</WhiteButton>
 			{range(1, 6).map((i) => getButton(i, currentPage, setCurrentPage))}
 			<DotDotDot>...</DotDotDot>
 			{getButton(30, currentPage, setCurrentPage)}
-			<PrimaryWhiteButton type='button' dense>
-				tiếp
-			</PrimaryWhiteButton>
-			<PrimaryWhiteButton type='button' dense>
-				cuối
-			</PrimaryWhiteButton>
+			<WhiteButton type='button' dense>
+				Next
+			</WhiteButton>
+			<WhiteButton type='button' dense>
+				Last
+			</WhiteButton>
 		</Container>
 	);
 }
-
-Pagination.propTypes = {
-	className: PropTypes.string,
-};
-
-Pagination.defaultProps = {
-	className: '',
-};

@@ -16,8 +16,9 @@ const TeacherPage = () => (
 	<main>
 		<Breadcrumb path={[routes.home, routes.teacher]} />
 		<Filters
-			title='Danh sách giáo viên'
-			subTitle='Có tất cả 100 giáo viên trong danh sách'
+			title='All Teachers'
+			subTitle='There are more than 100 teachers here'
+			isTeacherFilter
 		/>
 		<Content>
 			<TeacherGrid list={englishBabes} />

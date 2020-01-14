@@ -111,7 +111,7 @@ export default function ExerciseCarousel({ title, list, slidesToShow }) {
 						key={e.id}
 						image={e.image}
 						title={e.title}
-						description={`${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
+						description={`${e.questionCount} questions - ${e.difficulty}`}
 						date={e.publish}
 					/>
 				))}

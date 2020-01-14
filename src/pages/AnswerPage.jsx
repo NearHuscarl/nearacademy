@@ -20,17 +20,11 @@ import answers from '../data/answers';
 import { questions } from '../data/questions';
 import UpvoteScore from '../components/UpvoteScore';
 import timeSince from '../utilities/timeSince';
+import { Column, ColumnContainer } from '../layout/Column';
 
 const FlexContainer = styled.div`
 	display: flex;
 `;
-
-const Content = styled.div`
-	display: flex;
-	margin-top: 2.7rem;
-	margin-bottom: 7rem;
-`;
-
 const Header = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -41,16 +35,9 @@ const Header = styled.div`
 		font-weight: bold;
 	}
 `;
-
-const ColumnLeft = styled.div`
-	margin-right: 2.6rem;
-	width: 100%;
+const Description = styled.div`
+	white-space: pre-wrap;
 `;
-
-const ColumnRight = styled.div`
-	flex: 0 1;
-`;
-
 const Side = styled.div`
 	flex: 0 0 7rem;
 	margin-right: 1.9rem;
@@ -71,10 +58,6 @@ const Main = styled.div`
 	width: 100%;
 `;
 
-const Description = styled.div`
-	max-width: 45rem;
-`;
-
 const QaButtonText = styled(ButtonText)`
 	font-size: 1rem;
 	display: block;
@@ -92,15 +75,9 @@ const FilterGroup = styled.div`
 	margin-top: 1rem;
 	margin-bottom: 2rem;
 `;
-
-const AnswerFilter = styled(Selector)`
-	width: 13.5rem;
-`;
-
 const UserTag = styled(Tag)`
 	color: ${appColors.lightBlue};
 `;
-
 const Comment = styled.div`
 	display: flex;
 	align-items: center;
@@ -132,8 +109,8 @@ const RichEditor = styled(RichTextEditor)`
 `;
 
 const options = [
-	{ value: 'most_related', label: 'Phù hợp nhất' },
-	{ value: 'newest', label: 'Mới nhất' },
+	{ value: 'most_related', label: 'Most related' },
+	{ value: 'newest', label: 'Newest' },
 ];
 
 function AnswerPage({ hotQuestions, newQuestions }) {
@@ -143,50 +120,42 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 
 	return (
 		<>
-			<Breadcrumb
-				path={[
-					routes.home,
-					routes.question,
-					'Nhờ giúp đỡ dạng bài tìm giá trị của m để hàm số đạt cực trị',
-				]}
-			/>
+			<Breadcrumb path={[routes.home, routes.question, question.title]} />
 			<ContentContainer as='main'>
 				<Header>
-					<H2 className='mt-md'>
-						Nhờ giúp đỡ dạng bài tìm giá trị của m để hàm số đạt cực trị
-						<H2 sub className='mt-tn'>
-							Môn Toán - Lượt xem: 30
+					<div>
+						<H2 className='mt-md mb-0'>{question.title}</H2>
+						<H2 sub className='mt-tn mb-sm'>
+							{`Subject: ${question.subject} - Views: ${question.views}`}
 						</H2>
-					</H2>
+					</div>
 					<Button
 						type='button'
 						onClick={() => history.push('/questions/ask')}
 					>
-						Đặt câu hỏi mới
+						Ask a new question
 					</Button>
 				</Header>
 				<Line />
-				<Content>
-					<ColumnLeft>
+				<ColumnContainer>
+					<Column>
 						<FlexContainer>
 							<Side>
 								<UpvoteScore score={question.votes} />
 							</Side>
 							<Main>
-								<Description>
-									<div>{question.description}</div>
+								<div>
+									<Description>{question.description}</Description>
 									<Tags>
 										{question.tags.map((t) => (
 											<Tag key={t}>{t}</Tag>
 										))}
 									</Tags>
-								</Description>
+								</div>
 								<Bottom>
 									<div>
-										<QaButtonText>
-											Chỉnh sửa lại nội dung của câu hỏi này
-										</QaButtonText>
-										<QaButtonText>Thêm bình luận mới</QaButtonText>
+										<QaButtonText>Edit this question</QaButtonText>
+										<QaButtonText>Add comment</QaButtonText>
 									</div>
 									<QaProfile
 										user={question.user}
@@ -197,8 +166,9 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 						</FlexContainer>
 						<SizedBox height={3} />
 						<FilterGroup>
-							<H3>2 câu trả lời</H3>
-							<AnswerFilter
+							<H3>2 Answers</H3>
+							<Selector
+								width={14}
 								value={filter}
 								onChange={(selectedValue) =>
 									setFilter(() => selectedValue)
@@ -216,13 +186,9 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 										/>
 									</Side>
 									<Main>
-										<Description>
-											<div>{a.description}</div>
-										</Description>
+										<Description>{a.description}</Description>
 										<Bottom>
-											<QaButtonText>
-												Chỉnh sửa lại nội dung của câu trả lời này
-											</QaButtonText>
+											<QaButtonText>Edit this answer</QaButtonText>
 											<QaProfile user={a.user} date={a.date} />
 										</Bottom>
 										{a.comments.length > 0 && (
@@ -238,13 +204,13 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 													<UserTag>{c.user.name}</UserTag>
 													<div className='date'>
 														{timeSince(new Date(c.date)) +
-															' trước'}
+															' ago'}
 													</div>
 												</Comment>
 												<Line />
 											</>
 										))}
-										<CommentButton>Thêm bình luận mới</CommentButton>
+										<CommentButton>Add comment</CommentButton>
 									</Main>
 								</FlexContainer>
 								{index !== answers.length - 1 && <Line small />}
@@ -253,32 +219,33 @@ function AnswerPage({ hotQuestions, newQuestions }) {
 						<SizedBox height={4} />
 						<Pagination />
 						<SizedBox height={5} />
-						<H3>Câu trả lời của bạn</H3>
+						<H3>Your Answer</H3>
 						<RichEditor
 							value={RichTextEditor.createEmptyValue()}
-							placeholder='Nhập nội dung câu trả lời'
+							placeholder='Enter your answer...'
 						/>
-					</ColumnLeft>
-					<ColumnRight>
+					</Column>
+					<Column width='22rem'>
 						<QuestionListSideBar
-							title='Bạn có thể quan tâm'
+							title='Most related'
 							questions={hotQuestions}
 							className='mb-md'
 						/>
 						<QuestionListSideBar
-							title='Câu hỏi nổi bật'
+							title='Trending questions'
 							questions={hotQuestions}
 							className='mb-md'
 						/>
 						<QuestionListSideBar
-							title='Câu hỏi mới nhất'
+							title='Newest questions'
 							questions={newQuestions}
 							className='mb-md'
 						/>
 						<Ads />
-					</ColumnRight>
-				</Content>
+					</Column>
+				</ColumnContainer>
 			</ContentContainer>
+			<SizedBox height={5} />
 		</>
 	);
 }

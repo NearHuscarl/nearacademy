@@ -6,25 +6,25 @@ function timeSince(date) {
 	let interval = Math.floor(seconds / 31536000);
 
 	if (interval > 1) {
-		return interval + ' năm';
+		return interval + ' years';
 	}
 	interval = Math.floor(seconds / 2592000);
 	if (interval > 1) {
-		return interval + ' tháng';
+		return interval + ' months';
 	}
 	interval = Math.floor(seconds / 86400);
 	if (interval > 1) {
-		return interval + ' ngày';
+		return interval + ' days';
 	}
 	interval = Math.floor(seconds / 3600);
 	if (interval > 1) {
-		return interval + ' giờ';
+		return interval + ' hours';
 	}
 	interval = Math.floor(seconds / 60);
 	if (interval > 1) {
-		return interval + ' phút';
+		return interval + ' minutes';
 	}
-	return Math.floor(seconds) + ' giây';
+	return Math.floor(seconds) + ' seconds';
 }
 
 export default timeSince;

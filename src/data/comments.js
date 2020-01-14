@@ -1,36 +1,42 @@
-import { user } from './users';
+import { randomUser } from './users';
 
-const commenter = user('chihuahua');
-const commenter2 = user('near');
+const commenter = randomUser();
+const commenter2 = randomUser();
+const commenter3 = randomUser();
 
 const comments = [
 	{
 		avatar: commenter.avatar,
 		user: commenter.name,
-		date: '30 phút trước',
-		content: 'Lời giải hết sức thuyết phục',
+		userId: commenter.id,
+		date: '30 minutes ago',
+		content: 'Your solution is very good',
 		replies: [
 			{
 				avatar: commenter2.avatar,
 				user: commenter2.name,
-				date: '31 phút trước',
-				content: 'Lời giải không hết sức thuyết phục',
+				userId: commenter2.id,
+				date: '31 minutes ago',
+				content: "No it's not",
 				isReply: true,
 			},
 			{
-				avatar: commenter2.avatar,
-				user: commenter2.name,
-				date: '33 phút trước',
-				content: ' ',
+				avatar: commenter.avatar,
+				user: commenter.name,
+				userId: commenter.id,
+				date: '33 minutes ago',
+				content: 'your mom',
 				isReply: true,
 			},
 		],
 	},
 	{
-		avatar: commenter.avatar,
-		user: commenter.name,
-		date: '35 phút trước',
-		content: 'lorem islum',
+		avatar: commenter3.avatar,
+		user: commenter3.name,
+		userId: commenter3.id,
+		date: '35 minutes ago',
+		content:
+			"Don't mind me. just an underpaid defloper testing in production",
 		replies: [],
 	},
 ];

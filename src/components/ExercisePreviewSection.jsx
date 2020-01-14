@@ -49,20 +49,20 @@ export default function ExercisePreviewSection({ exercise }) {
 		<Container>
 			<img src={exercise.image} alt='exercise preview' />
 			<H2>{exercise.title}</H2>
-			<div>{`${exercise.questionCount} câu hỏi - Trình độ ${exercise.difficulty}`}</div>
+			<div>{`${exercise.questionCount} questions - ${exercise.difficulty}`}</div>
 			<Stats>
-				{`Phát hành: ${
+				{`Date: ${
 					exercise.publish
-				} - Lượt xem: ${exercise.views.toLocaleString()} - Lượt làm bài: ${exercise.attempts.toLocaleString()}`}
+				} - Views: ${exercise.views.toLocaleString()} - Attempts: ${exercise.attempts.toLocaleString()}`}
 			</Stats>
 			<div>
 				<Button type='button' onClick={() => history.push(exercisePath)}>
 					<FontAwesomeIcon icon={faPlay} />
-					<span>Bắt đầu làm bài</span>
+					<span>Start the exam</span>
 				</Button>
 				<WhiteButton type='button'>
 					<FontAwesomeIcon icon={faHeart} />
-					<span>Lưu vào danh sách yêu thích</span>
+					<span>Add to favorite</span>
 				</WhiteButton>
 			</div>
 		</Container>

@@ -24,7 +24,7 @@ function standingTab(standing) {
 	return (
 		<>
 			<Search>
-				<SearchBar placeholder='Tìm kiếm người dùng...' width={28} />
+				<SearchBar placeholder='Find user...' width={28} />
 			</Search>
 			{standing}
 			<SizedBox height={4.5} />
@@ -40,9 +40,9 @@ const StandingPage = ({ standing, monthlyStanding, weeklyStanding }) => (
 		<ContentContainer>
 			<Tabs>
 				<TabList>
-					<Tab>Bảng xếp hạng tổng</Tab>
-					<Tab>Bảng xếp hạng tháng</Tab>
-					<Tab>Bảng xếp hạng tuần</Tab>
+					<Tab>All Time</Tab>
+					<Tab>Monthly</Tab>
+					<Tab>Weekly</Tab>
 				</TabList>
 				<TabPanel>{standingTab(<Standing standing={standing} />)}</TabPanel>
 				<TabPanel>

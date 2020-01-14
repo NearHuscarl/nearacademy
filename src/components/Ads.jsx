@@ -25,7 +25,7 @@ const AdsContainer = styled.div`
 export default function Ads({ count }) {
 	return (
 		<AdsContainer>
-			<H3 className='mb-sm'>Quảng cáo</H3>
+			<H3 className='mb-sm'>Ads</H3>
 			{ads.slice(0, count).map((a) => (
 				<a
 					key={a}

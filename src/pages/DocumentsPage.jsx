@@ -27,8 +27,8 @@ const DocumentsPage = () => (
 	<main>
 		<Breadcrumb path={[routes.home, routes.document]} />
 		<Filters
-			title='Danh sách tài liệu'
-			subTitle='Có tất cả 300 tài liệu trong danh sách'
+			title='All Documents'
+			subTitle='There are more than 300 documents here'
 		/>
 		<ContentContainer>
 			<Content>
@@ -37,12 +37,12 @@ const DocumentsPage = () => (
 				</ColLeft>
 				<ColRight>
 					<DocumentListSideBar
-						title='Tài liệu nổi bật'
+						title='Trending documents'
 						list={sidebarDocuments}
 					/>
 					<SizedBox height={1} />
 					<DocumentListSideBar
-						title='Tài liệu mới nhất'
+						title='Newest documents'
 						list={sidebarDocuments}
 					/>
 					<SizedBox height={1} />

@@ -39,8 +39,11 @@ const Stats = styled.div`
 	font-size: 1.2rem;
 `;
 const Price = styled(Bold)`
-	color: ${appColors.red};
+	color: ${appColors.secondary};
 	margin-right: 1rem;
+`;
+const Discount = styled(Bold)`
+	color: ${appColors.greyDark1};
 `;
 
 function CourseListItem({ course }) {
@@ -52,22 +55,22 @@ function CourseListItem({ course }) {
 			<H4>
 				<Link to='/course/001/preview'>{c.title}</Link>
 			</H4>
-			<Bold>{`Môn ${c.subject}`}</Bold>
+			<Bold>{`Subject: ${c.subject} - Teacher: ${c.teacher}`}</Bold>
 			<Description>{c.description}</Description>
 			<Rating>
 				<StarRating score={c.rating} maxScore={5} />
 				<SizedBox width={1} />
-				<span>{`${c.rating}/5 (${c.ratingCount} lượt đánh giá)`}</span>
+				<span>{`${c.rating}/5 (${c.ratingCount} ratings)`}</span>
 			</Rating>
 			<Stats>
-				<span>Học phí: </span>
+				<span>Price: </span>
 				<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
-				<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
+				<Discount as='strike'>{`${c.originalPrice.toLocaleString()}đ`}</Discount>
 			</Stats>
 			<Stats>
-				<span>Phát hành: </span>
+				<span>Last updated: </span>
 				<Bold as='span'>{c.publishDate}</Bold>
-				<span> - Lượt đăng ký học: </span>
+				<span> - Students enrolled: </span>
 				<Bold as='span'>{c.students.toLocaleString()}</Bold>
 			</Stats>
 			<TagGroup>
@@ -103,17 +106,17 @@ function CartCourseListItem({ course, actionButtons }) {
 			<H4>
 				<Link to='/course/001/preview'>{c.title}</Link>
 			</H4>
-			<Bold>{`Môn ${c.subject}`}</Bold>
+			<Bold>{`Subject: ${c.subject} - Teacher: ${c.teacher}`}</Bold>
 			<Description>{c.description}</Description>
 			<Stats>
-				<span>Học phí: </span>
+				<span>Price: </span>
 				<Price as='span'>{`${c.price.toLocaleString()}đ`}</Price>
-				<strike>{`${c.originalPrice.toLocaleString()}đ`}</strike>
+				<Discount as='strike'>{`${c.originalPrice.toLocaleString()}đ`}</Discount>
 			</Stats>
 			{actionButtons ? (
 				<Actions>
-					<WhiteButton type='button'>Để dành mua sau</WhiteButton>
-					<WhiteButton type='button'>Xóa</WhiteButton>
+					<WhiteButton type='button'>Put back to wishlist</WhiteButton>
+					<WhiteButton type='button'>Delete</WhiteButton>
 				</Actions>
 			) : (
 				<SizedBox height={4} />

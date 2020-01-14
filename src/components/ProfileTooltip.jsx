@@ -55,35 +55,35 @@ function TooltipContent() {
 			</UserInfo>
 			<ul>
 				<li>
-					<ButtonText>Khóa học của tôi</ButtonText>
+					<ButtonText>My courses</ButtonText>
 				</li>
 				<Divider />
 				<li>
-					<ButtonText>Khóa học yêu thích</ButtonText>
+					<ButtonText>Favorite courses</ButtonText>
 				</li>
 				<li>
-					<ButtonText>Bài tập yêu thích</ButtonText>
+					<ButtonText>Favorite exercises</ButtonText>
 				</li>
 				<li>
-					<ButtonText>Đề thi thử yêu thích</ButtonText>
+					<ButtonText>Favorite exams</ButtonText>
 				</li>
 				<li>
-					<ButtonText>Tài liệu yêu thích</ButtonText>
+					<ButtonText>Favorite documents</ButtonText>
 				</li>
 				<li>
-					<ButtonText>Câu hỏi yêu thích</ButtonText>
-				</li>
-				<Divider />
-				<li>
-					<ButtonText>Quản lý tài khoản</ButtonText>
+					<ButtonText>Favorite questions</ButtonText>
 				</li>
 				<Divider />
 				<li>
-					<ButtonText>Trợ giúp</ButtonText>
+					<ButtonText>Manage your account</ButtonText>
+				</li>
+				<Divider />
+				<li>
+					<ButtonText>Help</ButtonText>
 				</li>
 				<li>
 					<ButtonText onClick={() => history.push(routes.login.path)}>
-						Đăng xuất
+						Log out
 					</ButtonText>
 				</li>
 			</ul>

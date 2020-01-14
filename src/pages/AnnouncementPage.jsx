@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Ads from '../components/Ads';
 import { Link, SizedBox, FormattedText } from '../components/Common';
 import ContentContainer from '../layout/ContentContainer';
 import Breadcrumb, {
@@ -42,11 +41,11 @@ const List = styled.ul`
 function Announcements() {
 	return (
 		<>
-			<H3>Thông báo mới nhất</H3>
+			<H3>New Announcments</H3>
 			<List>
 				{announcements.map((a) => (
 					<li key={a.title}>
-						<Thumbnail src={a.image} alt='announcement thumbnail' />
+						<Thumbnail src={a.image} alt='thumbnail' />
 						<div>
 							<Title to='/'>{a.title}</Title>
 							<Date>{a.date}</Date>
@@ -109,12 +108,11 @@ export const AnnouncementPageBuilder = ({ path, title, image, body }) => (
 					<Paragraph>{body}</Paragraph>
 				</ColLeft>
 				<ColRight>
-					<H3>Hướng dẫn cho người mới</H3>
+					<H3>For new students</H3>
 					<Video thumbnail={VideoThumbnail} />
 					<SizedBox height={2} />
 					<Announcements />
 					<SizedBox height={2} />
-					<Ads count={5} />
 				</ColRight>
 			</Content>
 		</ContentContainer>

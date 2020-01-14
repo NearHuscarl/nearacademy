@@ -1,4 +1,4 @@
-import styled, { theme } from '../styles';
+import styled, { theme, appColors, mixins } from '../styles';
 
 const Tag = styled.div`
 	background-color: #e1ecf4;
@@ -11,11 +11,14 @@ const Tag = styled.div`
 	margin: .25rem 0;
 	padding: 0.3rem 0.6rem;
 
-	transition: background-color 0.2s;
+	transition: all 0.2s;
 	cursor: pointer;
 
-	&:hover {
-		background-color: darken(#e1ecf4, 7.5%);
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: ${mixins.lighten(appColors.orange, 20)};
+		color: ${mixins.darken(appColors.orange, 20)};
 	}
 `;
 

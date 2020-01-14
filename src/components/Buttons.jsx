@@ -101,7 +101,7 @@ const ButtonBase = styled.button`
 	color: ${appColors.white};
 	background-color: ${appColors.primary};
 	border-radius: ${theme.borderRound};
-	overflow: hidden;
+	white-space: nowrap;
 
 	&:focus {
 		outline: none;
@@ -109,17 +109,11 @@ const ButtonBase = styled.button`
 `;
 
 const Button = styled(ButtonBase)`
+	color: ${mixins.mix(appColors.white, appColors.primary, 15)};
+
 	/* button fontawesome icon */
 	& > [class*='fa-']:not(:last-child) {
 		margin-right: 0.75rem;
-	}
-
-	&:hover {
-		color: ${appColors.white};
-		background-color: ${appColors.primaryDark};
-	}
-	&:focus {
-		box-shadow: none; /* override bs */
 	}
 
 	&:active,
@@ -127,6 +121,7 @@ const Button = styled(ButtonBase)`
 	&:hover {
 		/* override bootstrap blue box-shadow */
 		box-shadow: none;
+		background-color: ${mixins.darken(appColors.primary)};
 	}
 
 	${(props) =>
@@ -139,20 +134,10 @@ const Button = styled(ButtonBase)`
 `;
 
 export const WhiteButton = styled(Button)`
-	border: solid 1px ${appColors.greyLight2};
+	border: solid 1px ${appColors.greyLight3};
 	background-color: ${appColors.white};
 	color: ${appColors.greyDark1};
 
-	&:active,
-	&:focus,
-	&:hover {
-		border-color: ${appColors.greyDark2};
-		background-color: ${appColors.greyDark2};
-		color: ${appColors.white};
-	}
-`;
-
-export const PrimaryWhiteButton = styled(WhiteButton)`
 	${(props) => (props.active ? '&,' : '')}
 	&:active,
 	&:focus,
@@ -163,27 +148,31 @@ export const PrimaryWhiteButton = styled(WhiteButton)`
 	}
 `;
 
-export const OrangeButton = styled(Button)`
-	border-color: ${appColors.primary};
-	background-color: ${appColors.primary};
-	color: ${appColors.white};
-`;
-
 export const OpaqueButton = styled(Button)`
 	border-color: transparent;
 	background-color: ${mixins.opacity(appColors.primaryLight, 0.5)};
-	color: ${mixins.darken(appColors.primary)};
+	color: ${mixins.darken(appColors.primary, 5)};
+	&:active,
+	&:focus,
+	&:hover {
+		color: ${appColors.white};
+	}
 `;
 
-export const GreyButton = styled(Button)`
-	background-color: ${appColors.greyLight3};
-	color: ${appColors.greyDark2};
+export const OrangeButton = styled(Button)`
+	background-color: ${appColors.orange};
+	color: ${mixins.mix(appColors.white, appColors.orange, 15)};
+	&:active,
+	&:focus,
+	&:hover {
+		background-color: ${mixins.darken(appColors.orange)};
+	}
 `;
 
 const ButtonChipContainer = styled(ButtonBase)`
 	display: inline-flex;
-	background-color: ${appColors.greyLight3};
-	color: ${appColors.greyDark2};
+	background-color: ${appColors.primary};
+	color: ${mixins.mix(appColors.white, appColors.primary, 15)};
 
 	.label {
 		margin-right: 1.2rem;
@@ -199,9 +188,6 @@ const ButtonChipContainer = styled(ButtonBase)`
 	.button:active {
 		outline: none;
 		transform: translateY(0.05rem);
-	}
-	.button:hover {
-		color: ${appColors.primary};
 	}
 `;
 

@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import range from 'lodash/range';
 import { setExerciseResultQuestion } from '../actions/exerciseResult';
 import Card from './Card';
-import Button, { PrimaryWhiteButton } from './Buttons';
+import Button, { WhiteButton } from './Buttons';
 import styled, { helperStyles } from '../styles';
 import routes from '../routes';
 
@@ -18,7 +18,7 @@ const Container = styled(Card)`
 
 	padding: 2rem;
 `;
-const QButton = styled(PrimaryWhiteButton)`
+const QButton = styled(WhiteButton)`
 	width: 3rem;
 	height: 3rem;
 	padding: 0;
@@ -26,7 +26,7 @@ const QButton = styled(PrimaryWhiteButton)`
 `;
 const SubmitButton = styled(Button)`
 	padding: 0.7rem 1.5rem;
-	margin-top: 2.2rem;
+	margin-top: 1rem;
 	grid-column: 1 / -1;
 	${helperStyles.bold}
 `;
@@ -53,7 +53,7 @@ function QuestionGrid({
 				);
 			})}
 			<SubmitButton type='button' onClick={() => history.push(exercisePath)}>
-				Làm lại bài tập
+				Try again
 			</SubmitButton>
 		</Container>
 	);

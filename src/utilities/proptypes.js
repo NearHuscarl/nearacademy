@@ -156,6 +156,7 @@ const answerProps = PropTypes.shape({
 const commentProps = PropTypes.shape({
 	avatar: PropTypes.string.isRequired,
 	user: PropTypes.string.isRequired,
+	userId: PropTypes.string.isRequired,
 	date: PropTypes.string.isRequired,
 	content: PropTypes.string.isRequired,
 });

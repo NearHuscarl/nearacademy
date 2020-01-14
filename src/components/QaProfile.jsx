@@ -10,10 +10,10 @@ const User = styled.div`
 	column-gap: 0.7rem;
 
 	width: 12rem;
+	font-size: 1rem;
 
 	& > :first-child {
 		grid-column: 1 / -1;
-		font-size: 0.9rem;
 	}
 
 	img {
@@ -31,18 +31,14 @@ const User = styled.div`
 		font-size: 1rem;
 		font-weight: 600;
 	}
-
-	.level {
-		font-size: 1rem;
-	}
 `;
 export default function QaProfile({ user, date }) {
 	return (
 		<User>
-			<div>{`đã hỏi cách đây ${timeSince(new Date(date))}`}</div>
+			<div>{`Asked ${timeSince(new Date(date))} ago`}</div>
 			<img src={user.avatar} alt='user profile' />
 			<div className='name'>{user.name}</div>
-			<div className='level'>{`Level: ${user.level}`}</div>
+			<div>{`Level ${user.level}`}</div>
 		</User>
 	);
 }

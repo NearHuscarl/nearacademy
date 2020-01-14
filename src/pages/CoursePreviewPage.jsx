@@ -1,11 +1,11 @@
 import React from 'react';
-import { faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUsers, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ContentContainer from '../layout/ContentContainer';
 import Breadcrumb, { routes } from '../components/Breadcrumb';
 import StarRating from '../components/StarRating';
 import CourseBanner from '../components/CourseBanner';
-import { PrimaryWhiteButton } from '../components/Buttons';
+import { WhiteButton } from '../components/Buttons';
 import FeatureBox from '../components/FeatureBox';
 import CourseSummaryList from '../components/CourseSummaryList';
 import CourseList from '../components/CourseList';
@@ -101,8 +101,7 @@ const BuyToday = styled.div`
 
 	.text {
 		flex: 1;
-		padding-left: 0.5rem;
-		padding: 1rem 0.75rem;
+		padding: 1rem;
 		border-bottom-right-radius: ${theme.borderRound};
 		border-top-right-radius: ${theme.borderRound};
 		border: solid 1px rgba(20, 23, 28, 0.1);
@@ -125,26 +124,29 @@ function CoursePreviewHeader() {
 					<Stats>
 						<StarRating score={course.rating} maxScore={5} />
 						<SizedBox width={1} />
-						<span>{`${course.rating}/5 (${course.ratingCount} lượt đánh giá)`}</span>
+						<span>{`${course.rating}/5 (${course.ratingCount} ratings)`}</span>
 						<SizedBox width={1} />
-						<span>{`${course.students} lượt đăng ký học`}</span>
+						<span>{`${course.students} students enrolled`}</span>
 					</Stats>
 					<Stats>
-						<span>{`Giảng viên: ${course.teacher}`}</span>
+						<span>{`Teacher: ${course.teacher}`}</span>
 						<SizedBox width={1} />
-						<span>{`Lần cập nhật cuối: ${course.lastUpdate}`}</span>
+						<span>{`Last updated: ${course.lastUpdate}`}</span>
 					</Stats>
 				</div>
 				<HeaderRight>
 					<HeaderRightContent>
 						<CourseBanner course={course} />
-						<PrimaryWhiteButton>Chia sẻ khóa học</PrimaryWhiteButton>
+						<WhiteButton>
+							<FontAwesomeIcon icon={faShare} />
+							<span>Share</span>
+						</WhiteButton>
 						<BuyToday>
 							<div className='icon'>
 								<FontAwesomeIcon icon={faUsers} />
 							</div>
 							<div className='text'>
-								<strong>50</strong> người đã mua trong hôm nay
+								<strong>50</strong> people has bought today
 							</div>
 						</BuyToday>
 						<Ads count={4} />
@@ -193,13 +195,7 @@ const Paragraph = styled(FormattedText)`
 
 const CoursePreviewPage = () => (
 	<>
-		<Breadcrumb
-			path={[
-				routes.home,
-				routes.courses,
-				'Super Plus: Chinh phục bài tập nâng cao - Môn Sinh học',
-			]}
-		/>
+		<Breadcrumb path={[routes.home, routes.courses, course.title]} />
 		<Main>
 			<CoursePreviewHeader />
 			<ContentContainer>
@@ -208,7 +204,7 @@ const CoursePreviewPage = () => (
 						<FeatureBox features={course.features} />
 						<CourseSummaryList course={course} />
 						<RequirementSection>
-							<H2>Yêu cầu</H2>
+							<H2>Requirements</H2>
 							<ul>
 								{course.requirements.map((f, i) => {
 									const key = i;
@@ -217,7 +213,7 @@ const CoursePreviewPage = () => (
 							</ul>
 						</RequirementSection>
 						<Section>
-							<H2>Mô tả khóa học</H2>
+							<H2>Description</H2>
 							<Paragraph>{course.courseDescription}</Paragraph>
 						</Section>
 					</ColumnLeft>
@@ -225,18 +221,18 @@ const CoursePreviewPage = () => (
 				</TwoColumn>
 				<OneColumn>
 					<Section>
-						<H2>Đánh giá nổi bật</H2>
+						<H2>Featured review</H2>
 						<FeatureReviewCard review={review.reviews[0]} />
 					</Section>
 					<Section>
-						<H2>Thường được mua cùng</H2>
+						<H2>Students also bought</H2>
 						<CourseList courses={courses.slice(0, 2)} alwaysShowPrice />
 					</Section>
 					<Section>
 						<TeacherDetail teacher={biologyTeacher} />
 					</Section>
 					<Section>
-						<H2>Cùng giáo viên</H2>
+						<H2>Same teacher</H2>
 						<CourseList courses={courses.slice(2, 4)} alwaysShowPrice />
 					</Section>
 					<Section>

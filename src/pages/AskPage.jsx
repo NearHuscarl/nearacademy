@@ -14,6 +14,7 @@ import { H2 } from '../components/Headings';
 import ContentContainer from '../layout/ContentContainer';
 import { questionProps } from '../utilities/proptypes';
 import styled from '../styles';
+import subjects from '../data/subjects';
 
 const AskForm = styled(ColumnLeft)`
 	display: flex;
@@ -23,37 +24,35 @@ const AskForm = styled(ColumnLeft)`
 		align-self: end;
 	}
 `;
-
-const options = [
-	{ value: 'toan', label: 'Toán' },
-	{ value: 'vatLy', label: 'Vật lý' },
-	{ value: 'hoaHoc', label: 'Hóa học' },
-	{ value: 'sinhHoc', label: 'Sinh học' },
-	{ value: 'lichSu', label: 'Lịch sử' },
-	{ value: 'diaLy', label: 'Địa lý' },
+const subjectOptions = [
+	{ value: subjects[0], label: subjects[0] },
+	{ value: subjects[1], label: subjects[1] },
+	{ value: subjects[2], label: subjects[2] },
+	{ value: subjects[3], label: subjects[3] },
+	{ value: subjects[4], label: subjects[4] },
+	{ value: subjects[5], label: subjects[5] },
+	{ value: subjects[6], label: subjects[6] },
+	{ value: subjects[7], label: subjects[7] },
 ];
 
 function AskPage({ hotQuestions, newQuestions }) {
 	const history = useHistory();
-	const questionTitle = 'Nhập tiêu đề của câu hỏi';
-	const questionBody = 'Nhập nội dung của câu hỏi';
+	const questionTitle = 'Enter question title';
+	const questionBody = 'Enter question body';
 	const [filter, setFilter] = React.useState(null);
 
 	return (
 		<>
-			<Breadcrumb path={[routes.home, routes.question, 'Đặt câu hỏi mới']} />
+			<Breadcrumb path={[routes.home, routes.question, 'Ask']} />
 			<ContentContainer as='main'>
-				<H2 className='mt-md'>
-					Đặt câu hỏi mới
-					<H2 sub className='mt-tn'>
-						Đặt câu hỏi để nhận được sự hỗ trợ từ cộng đồng học sinh của
-						NearAcademy
-					</H2>
+				<H2 className='mt-md mb-0'>Ask a new question</H2>
+				<H2 sub className='mt-tn mb-sm'>
+					Be specific and imagine you’re asking your dad for money
 				</H2>
 				<Line />
 				<Content>
 					<AskForm>
-						<div className='bold mb-sm'>Tiêu đề câu hỏi</div>
+						<div className='bold mb-sm'>Title</div>
 						<InputGroup className='mb-sm'>
 							<Input
 								type='text'
@@ -61,7 +60,7 @@ function AskPage({ hotQuestions, newQuestions }) {
 								aria-label={questionTitle}
 							/>
 						</InputGroup>
-						<div className='bold mb-sm'>Nội dung câu hỏi</div>
+						<div className='bold mb-sm'>Body</div>
 						<InputGroup className='mb-sm'>
 							<textarea
 								type='text'
@@ -70,31 +69,31 @@ function AskPage({ hotQuestions, newQuestions }) {
 								rows={10}
 							/>
 						</InputGroup>
-						<div className='bold mb-sm'>Môn học</div>
+						<div className='bold mb-sm'>Subject</div>
 						<Selector
-							placeholder='Chọn môn học từ danh sách'
+							placeholder='Choose subject'
 							value={filter}
 							onChange={(selectedValue) =>
 								setFilter(() => selectedValue)
 							}
-							options={options}
+							options={subjectOptions}
 						/>
 						<Button
 							type='button'
 							className='bold mt-md'
 							onClick={() => history.push('/questions')}
 						>
-							Đăng câu hỏi
+							Post your question
 						</Button>
 					</AskForm>
 					<ColumnRight>
 						<QuestionListSideBar
-							title='Câu hỏi nổi bật'
+							title='Trending questions'
 							questions={hotQuestions}
 							className='mb-md'
 						/>
 						<QuestionListSideBar
-							title='Câu hỏi mới nhất'
+							title='Newest questions'
 							questions={newQuestions}
 							className='mb-md'
 						/>

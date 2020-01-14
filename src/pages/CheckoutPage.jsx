@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import Radio, { RadioGroup } from '../components/Radio';
 import Breadcrumb, { routes } from '../components/Breadcrumb';
 import { H2 } from '../components/Headings';
@@ -34,7 +35,7 @@ const Cart = styled.div`
 const Price = styled.div`
 	font-size: 2.2rem;
 	font-weight: 600;
-	color: ${appColors.red};
+	color: ${appColors.secondary};
 `;
 const Small = styled(FormattedText)`
 	font-size: 1.2rem;
@@ -50,6 +51,7 @@ const DiscountHelp = styled.div`
 `;
 
 const CheckoutPage = () => {
+	const history = useHistory();
 	const [checkoutMethod, setCheckoutMethod] = React.useState('visa');
 
 	return (
@@ -58,38 +60,38 @@ const CheckoutPage = () => {
 			<ContentContainer>
 				<Content>
 					<div>
-						<H2>Chọn hình thức thanh toán</H2>
-						<SizedBox height={.5} />
+						<H2>Accepted payment methods</H2>
+						<SizedBox height={0.5} />
 						<RadioGroup
 							value={checkoutMethod}
 							onChange={(e) => setCheckoutMethod(e.target.value)}
 						>
-							<Radio
-								value='visa'
-								label='Thanh toán thông qua thẻ VISA'
-							/>
+							<Radio value='visa' label='VISA' />
 							<Radio
 								value='banking'
-								label='Thanh toán thông qua thẻ ATM nội địa / Internet Banking'
+								label='Credit Card / Internet Banking'
 							/>
-							<Radio value='momo' label='Thanh toán bằng ví MoMo' />
+							<Radio value='momo' label='MoMo' />
 						</RadioGroup>
 						<SizedBox height={2} />
-						<H2>Chi tiết đơn hàng (5)</H2>
+						<H2>Cart detail (5)</H2>
 						<SizedBox height={1} />
 						<CartCourseList courses={courses.slice(0, 5)} />
 					</div>
 					<Cart>
-						<H2>Thành tiền</H2>
+						<H2>Total</H2>
 						<Price>6,800,000đ</Price>
 						<strike>7,900,000đ</strike>
-						<Small>Ưu đãi còn [3] ngày nữa</Small>
-						<Button type='button'>Thanh toán</Button>
+						<Small>[3] days left for your discount</Small>
+						<Button
+							type='button'
+							onClick={() => history.push(routes.courses.path)}
+						>
+							Proceed To Checkout
+						</Button>
 						<Line medium />
 						<DiscountHelp>
-							<FormattedText>
-								Áp dụng mã giảm giá [HOCSINHMOI]
-							</FormattedText>
+							<FormattedText>Apply coupon [NEWSTUDENT]</FormattedText>
 						</DiscountHelp>
 					</Cart>
 				</Content>

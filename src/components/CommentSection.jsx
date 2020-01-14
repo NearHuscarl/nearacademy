@@ -10,6 +10,8 @@ import styled, { appColors, helperStyles } from '../styles';
 import { InputGroup } from './Input';
 import { H3 } from './Headings';
 import Button, { ButtonLink } from './Buttons';
+import { Link } from './Common';
+import routes from '../routes';
 
 const CommentContainer = styled.div`
 	display: flex;
@@ -37,10 +39,7 @@ const CommentTop = styled.div`
 	display: flex;
 	align-items: baseline;
 `;
-const CommentUser = styled.div`
-	color: ${appColors.greyDark3};
-	font-weight: 600;
-	font-size: 1.3rem;
+const CommentUser = styled(Link)`
 	margin-right: 1.2rem;
 `;
 const CommentDate = styled.div`
@@ -62,7 +61,7 @@ const CommentAction = styled.div`
 `;
 
 function Comment({ comment, isReply }) {
-	const { avatar, user, date, content } = comment;
+	const { avatar, user, userId, date, content } = comment;
 	return (
 		<CommentContainer>
 			{isReply && <CommentPadding />}
@@ -70,17 +69,15 @@ function Comment({ comment, isReply }) {
 				<CommentProfile src={avatar} alt='user avatar' />
 				<div>
 					<CommentTop>
-						<CommentUser>{user}</CommentUser>
+						<CommentUser to={`${routes.profile.path}/${userId}`}>
+							{user}
+						</CommentUser>
 						<CommentDate>{date}</CommentDate>
 					</CommentTop>
 					<CommentBody>{content}</CommentBody>
 					<CommentAction>
-						<ButtonLink type='button'>
-							Thích
-						</ButtonLink>
-						<ButtonLink type='button'>
-							Trả lời
-						</ButtonLink>
+						<ButtonLink type='button'>Like</ButtonLink>
+						<ButtonLink type='button'>Reply</ButtonLink>
 					</CommentAction>
 				</div>
 			</CommentContent>
@@ -102,9 +99,6 @@ const CommentFilterGroup = styled.div`
 	align-items: center;
 	margin: 1rem 0;
 `;
-const CommentFilter = styled(Selector)`
-	width: 14rem;
-`;
 const SubmitButton = styled(Button)`
 	min-width: 8.4rem;
 	align-self: end;
@@ -116,8 +110,8 @@ const CommentGroup = styled.div`
 `;
 
 const options = [
-	{ value: 'most_related', label: 'Phù hợp nhất' },
-	{ value: 'newest', label: 'Mới nhất' },
+	{ value: 'most_related', label: 'Most related' },
+	{ value: 'newest', label: 'Newest' },
 ];
 
 function getCommentCount(comments) {
@@ -131,7 +125,8 @@ function getCommentCount(comments) {
 
 function CommentSection({ comments }) {
 	const [filter, setFilter] = useState(options[0]);
-	const commentLabel = 'Nhập nội dung bình luận...';
+	const commentLabel = 'Enter your comment...';
+	const commentCount = getCommentCount(comments);
 
 	return (
 		<CommentSectionContainer>
@@ -142,12 +137,13 @@ function CommentSection({ comments }) {
 					aria-label={commentLabel}
 				/>
 			</InputGroup>
-			<SubmitButton type='button'>
-				Bình luận
-			</SubmitButton>
+			<SubmitButton type='button'>Comment</SubmitButton>
 			<CommentFilterGroup>
-				<H3>{`${getCommentCount(comments)} bình luận`}</H3>
-				<CommentFilter
+				<H3>{`${commentCount} ${
+					commentCount > 1 ? 'comments' : 'comment'
+				}`}</H3>
+				<Selector
+					width={14}
 					value={filter}
 					onChange={(selectedValue) => setFilter(() => selectedValue)}
 					options={options}
@@ -183,7 +179,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-	setExerciseResultComment: (comment) => dispatch(setExerciseResultComment(comment)),
+	setExerciseResultComment: (comment) =>
+		dispatch(setExerciseResultComment(comment)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CommentSection);

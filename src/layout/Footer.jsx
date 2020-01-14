@@ -58,7 +58,7 @@ const TopLink = styled(Link)`
 	color: ${theme.fontColor};
 `;
 const TopAppImage = styled.img`
-	width: 18rem;
+	width: 20rem;
 	transition: box-shadow 0.2s, transform 0.2s;
 
 	&:hover {
@@ -90,12 +90,12 @@ const BottomCopyright = styled.div`
 	margin-bottom: 0.9rem;
 `;
 const BottomLicense = styled.div`
-	line-height: 0.25;
+	line-height: 1.2;
 	font-size: 0.8rem;
+	width: 55rem;
 `;
-
 export default function Footer() {
-	const { intro, teacher, exercise, exam, document, question } = routes;
+	const { about, teacher, exercise, exam, document, question } = routes;
 
 	return (
 		<footer>
@@ -105,47 +105,47 @@ export default function Footer() {
 					<H4>About</H4>
 					<ul>
 						<li>
-							<TopLink to={intro.path}>Giới thiệu</TopLink>
+							<TopLink to={about.path}>Introduction</TopLink>
 						</li>
 						<li>
-							<TopLink to={teacher.path}>Giáo viên nổi tiếng</TopLink>
+							<TopLink to={teacher.path}>Famous teachers</TopLink>
 						</li>
 						<li>
-							<TopLink>Điều khoản sử dụng</TopLink>
+							<TopLink>Terms of service</TopLink>
 						</li>
 						<li>
-							<TopLink>Quy chế hoạt động</TopLink>
+							<TopLink>Regulation</TopLink>
 						</li>
 						<li>
-							<TopLink>Chính sách bảo mật</TopLink>
+							<TopLink>Privacy policy</TopLink>
 						</li>
 						<li>
-							<TopLink>Tuyển dụng</TopLink>
+							<TopLink>Careers</TopLink>
 						</li>
 					</ul>
 				</div>
 				<div>
-					<H4>Dịch vụ</H4>
+					<H4>Service</H4>
 					<ul>
 						<li>
-							<TopLink to={exercise.path}>Kho bài tập</TopLink>
+							<TopLink to={exercise.path}>Exercise storage</TopLink>
 						</li>
 						<li>
-							<TopLink to={exam.path}>Kho đề thi thử</TopLink>
+							<TopLink to={exam.path}>Exam storage</TopLink>
 						</li>
 						<li>
-							<TopLink to={document.path}>Kho tài liệu</TopLink>
+							<TopLink to={document.path}>Document storage</TopLink>
 						</li>
 						<li>
-							<TopLink to={question.path}>Hỏi đáp</TopLink>
+							<TopLink to={question.path}>Forum</TopLink>
 						</li>
 					</ul>
 				</div>
 				<div>
 					<div className='mb-md'>
-						<H4>Hỗ trợ khách hàng</H4>
+						<H4>Contact</H4>
+						<H4>Customer</H4>
 						<ul>
-							<li>Trung tâm hỗ trợ</li>
 							<li>
 								<span className='bold'>Email: </span>
 								<TopLink
@@ -169,7 +169,7 @@ export default function Footer() {
 						</ul>
 					</div>
 					<div>
-						<H4>Dành cho đối tác</H4>
+						<H4>Client</H4>
 						<ul>
 							<li>
 								<span className='bold'>Email: </span>
@@ -193,11 +193,7 @@ export default function Footer() {
 							</li>
 							<li>
 								<span className='bold'>Fax: </span>
-								<TopLink
-									as='a'
-									href='#'
-									rel='noreferrer noopener'
-								>
+								<TopLink as='a' href='#' rel='noreferrer noopener'>
 									+84 (00) 0000-0000
 								</TopLink>
 							</li>
@@ -205,7 +201,7 @@ export default function Footer() {
 					</div>
 				</div>
 				<div>
-					<H4>Tải ứng dụng NearAcademy</H4>
+					<H4>Download NearAcademy app</H4>
 					<a href='#'>
 						<TopAppImage
 							className='mb-sm'
@@ -225,18 +221,14 @@ export default function Footer() {
 					<TwitterButton />
 				</BottomMedias>
 				<BottomCopyright>
-					© 2019 - Bản quyền website thuộc về nearacademy.com
+					© 2019 - All right reserved to NearAcademy
 				</BottomCopyright>
 				<BottomLicense>
-					<p>
-						Giấy phép cung cấp dịch vụ mạng xã hội trực tuyến số
-						000/GP-BTTTT do Bộ Thông tin và Truyền thông cấp ngày
-						02/09/2019
-					</p>
-					<p>
-						Giấy phép kinh doanh giáo dục: MST-0000000000 do Sở Kế hoạch
-						và Đầu tư cấp ngày 02/09/2019
-					</p>
+					Built by NearHuscarl for his HCI college project. Copyright © by
+					NearHuscarl. You are 100% allowed to use this webpage for both
+					personal and commercial use, but NOT to claim it as your own
+					design. A credit to the original author, NearHuscarl, is of
+					course highly appreciated!
 				</BottomLicense>
 			</FooterBottom>
 		</footer>

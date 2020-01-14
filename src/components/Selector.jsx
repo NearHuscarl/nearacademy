@@ -31,6 +31,8 @@ const StyledSelector = styled(Select)`
 	[class*='singleValue'] {
 		color: ${appColors.greyDark2};
 	}
+
+	width: ${(props) => props.width || 'auto'}rem;
 `;
 
 export default function Selector({
@@ -39,23 +41,24 @@ export default function Selector({
 	value,
 	onChange,
 	options,
+	width,
 }) {
 	return (
-		<>
-			<StyledSelector
-				styles={customStyles}
-				className={className}
-				placeholder={placeholder}
-				value={value}
-				onChange={onChange}
-				options={options}
-			/>
-		</>
+		<StyledSelector
+			width={width}
+			styles={customStyles}
+			className={className}
+			placeholder={placeholder}
+			value={value}
+			onChange={onChange}
+			options={options}
+		/>
 	);
 }
 
 Selector.propTypes = {
 	className: PropTypes.string,
+	width: PropTypes.number,
 	placeholder: PropTypes.node,
 	// eslint-disable-next-line react/forbid-prop-types
 	value: PropTypes.any.isRequired,
@@ -64,6 +67,7 @@ Selector.propTypes = {
 };
 
 Selector.defaultProps = {
-	className: '',
+	className: null,
+	width: null,
 	placeholder: '',
 };

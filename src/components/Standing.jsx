@@ -12,14 +12,14 @@ const List = styled.ul`
 const ListItem = styled.li`
 	display: grid;
 	grid-template-columns:
-		4rem minmax(10rem, 12.5rem) minmax(14rem, max-content)
+		2rem minmax(10rem, 12.5rem) minmax(14rem, max-content)
 		minmax(18rem, 22rem) minmax(7.5rem, 11rem) 1.5rem;
 	column-gap: 5rem;
 	align-items: center;
 
 	.rank,
 	.level {
-		text-align: center;
+		text-align: right;
 	}
 
 	img {
@@ -58,11 +58,11 @@ export default function Standing({ className, standing }) {
 	return (
 		<>
 			<Header>
-				<Bold>Vị thứ</Bold>
-				<Bold>Tài khoản</Bold>
-				<Bold>Họ và tên</Bold>
-				<Bold>Trường</Bold>
-				<Bold>Tỉnh/Thành phố</Bold>
+				<Bold>Rank</Bold>
+				<Bold>Profile</Bold>
+				<Bold>Name</Bold>
+				<Bold>School</Bold>
+				<Bold>Location</Bold>
 				<Bold>Level</Bold>
 			</Header>
 			<List className={className}>

@@ -50,19 +50,16 @@ export const ExercisePageBuilder = ({
 					<ExerciseList list={exercises} />
 				</ColLeft>
 				<ColRight>
-					<StandingSideBar
-						standing={standing}
-						title='Bảng xếp hạng chung'
-					/>
+					<StandingSideBar standing={standing} title='All Time Standing' />
 					<SizedBox height={1} />
 					<StandingSideBar
 						standing={monthlyStanding}
-						title='Bảng xếp hạng tháng'
+						title='Monthly Standing'
 					/>
 					<SizedBox height={1} />
 					<StandingSideBar
 						standing={weeklyStanding}
-						title='Bảng xếp hạng tuần'
+						title='Weekly Standing'
 					/>
 					<SizedBox height={1} />
 					<Ads />
@@ -77,9 +74,7 @@ export const ExercisePageBuilder = ({
 						key={key}
 						list={r}
 						title={
-							i % 2 === 0
-								? 'Các bài tập mới nhất'
-								: 'Các bài tập nổi bật'
+							i % 2 === 0 ? 'Trending exercises' : 'Newest exercises'
 						}
 					/>
 				);
@@ -114,8 +109,8 @@ const ExercisePage = ({
 		weeklyStanding={weeklyStanding}
 		filter={
 			<Filters
-				title='Danh sách bài tập'
-				subTitle='Có tất cả 300 bài tập trong danh sách'
+				title='All Exercises'
+				subTitle='There are more than 300 exercises here'
 			/>
 		}
 	/>

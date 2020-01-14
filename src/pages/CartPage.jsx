@@ -9,7 +9,7 @@ import Button, { ButtonText } from '../components/Buttons';
 import { IconInput } from '../components/Input';
 import { CartCourseList } from '../components/CourseList';
 import ContentContainer from '../layout/ContentContainer';
-import styled, { appColors } from '../styles';
+import styled, { appColors, mixins } from '../styles';
 import courses from '../data/courses';
 
 const Main = styled.main`
@@ -37,7 +37,7 @@ const Cart = styled.div`
 const Price = styled.div`
 	font-size: 2.2rem;
 	font-weight: 600;
-	color: ${appColors.red};
+	color: ${appColors.secondary};
 `;
 const Small = styled(FormattedText)`
 	font-size: 1.2rem;
@@ -51,6 +51,9 @@ const DiscountHelp = styled.div`
 		margin-right: 1rem;
 	}
 `;
+const Apply = styled.div`
+	padding: 0 1rem;
+`;
 
 const CartPage = () => {
 	const history = useHistory();
@@ -60,29 +63,32 @@ const CartPage = () => {
 			<ContentContainer>
 				<Content>
 					<div>
-						<H2>Giỏ hàng (5)</H2>
+						<H2>Cart (5)</H2>
 						<SizedBox height={1} />
 						<CartCourseList courses={courses.slice(0, 5)} actionButtons />
 					</div>
 					<Cart>
-						<H2>Thành tiền</H2>
+						<H2>Total</H2>
 						<Price>6,800,000đ</Price>
 						<strike>7,900,000đ</strike>
-						<Small>Ưu đãi còn [3] ngày nữa</Small>
+						<Small>[3] days left for your discount</Small>
 						<Button
 							type='button'
 							onClick={() => history.push(routes.checkout.path)}
 						>
-							Đến bước thanh toán
+							Go To Checkout
 						</Button>
 						<Line medium />
-						<IconInput placeholder='Mã giảm giá' icon='Áp dụng' />
+						<IconInput
+							placeholder='Enter Coupon'
+							icon={<Apply>Apply</Apply>}
+						/>
 						<DiscountHelp>
 							<ButtonText type='button'>
 								<FontAwesomeIcon icon={faTimes} />
 							</ButtonText>
 							<FormattedText>
-								Mã giảm giá [HOCSINHMOI] đang được áp dụng
+								Coupon code [NEWSTUDENT] is being applied
 							</FormattedText>
 						</DiscountHelp>
 					</Cart>

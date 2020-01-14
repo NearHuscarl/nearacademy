@@ -51,10 +51,10 @@ export default function ExerciseHistory({ className, list }) {
 	return (
 		<>
 			<Header>
-				<Bold>STT</Bold>
-				<Bold>Thời gian</Bold>
-				<Bold>Số câu đúng</Bold>
-				<Bold>Thời gian làm bài</Bold>
+				<Bold>Attempt</Bold>
+				<Bold>Date</Bold>
+				<Bold>True answers</Bold>
+				<Bold>Duration</Bold>
 			</Header>
 			<List className={className}>
 				{list.map((u, index) => (

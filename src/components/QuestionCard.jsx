@@ -35,7 +35,7 @@ function QuestionCard({
 	return (
 		<Card>
 			<H4>{question}</H4>
-			<OptionText>Chọn phương án trả lời đúng:</OptionText>
+			<OptionText>Choose the correct anwer:</OptionText>
 			<RadioGroup value={answer} onChange={handleChange}>
 				{answers.map((a, index) => (
 					<Radio key={a} value={index} label={a} />

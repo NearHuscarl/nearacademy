@@ -2,45 +2,44 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled, { appColors, theme } from '../styles';
+import styled, { appColors, theme, mixins } from '../styles';
 import routes from '../routes';
 
 const navItems = {
-	home: 'Home',
-	khoaHoc: 'Khóa học',
-	gioiThieu: 'Giới thiệu',
-	giaoVien: 'Giáo viên',
-	bangXepHang: 'Bảng xếp hạng',
-	baiTap: 'Bài tập',
-	thiThu: 'Thi thử',
-	taiLieu: 'Tài liệu',
-	hoiDap: 'Hỏi đáp',
+	courses: 'Courses',
+	teachers: 'Teachers',
+	standing: 'Standing',
+	exercises: 'Exercises',
+	exams: 'Exams',
+	documents: 'Documents',
+	forum: 'Forum',
+	about: 'About',
 };
 
 const NavBackground = styled.div`
-	background-color: ${appColors.greyDark3};
+	background-image: linear-gradient(
+		to right,
+		${appColors.greyDark2},
+		${appColors.greyDark3}
+	);
 	font-family: ${theme.primaryFont};
 `;
-const StyledNav = styled.nav`
+const NavBar = styled.nav`
 	font-family: ${theme.primaryFont};
 	max-width: ${theme.pageContainerWidth};
 	margin: 0 auto;
 
 	ul {
-		background-color: ${appColors.greyDark3};
 		/* override bootstrap margin-bottom: 1rem; */
 		margin-bottom: 0;
 		display: flex;
 		flex-wrap: wrap;
 		width: 100%;
-		height: auto;
 	}
 `;
 
 const NavLink = styled(Link)`
-	padding: 0.6rem 1.5rem;
+	padding: 1rem 1.5rem;
 
 	span {
 		display: flex;
@@ -77,130 +76,118 @@ const NavItemContainer = styled.li`
 	justify-content: center;
 	align-items: stretch;
 	cursor: pointer;
-	transition: all 0.15s;
+
+	position: relative;
+
+	&::before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: all 0.15s;
+		background-image: linear-gradient(
+			to bottom right,
+			${appColors.primary},
+			${mixins.darken(appColors.primary)}
+		);
+	}
+	a {
+		z-index: 1;
+	}
 
 	${(props) => props.highlight && '&,'}
 	&:hover {
-		background-color: ${appColors.primary};
+		opacity: 1;
 		border-left: solid 1px ${appColors.primary};
 		color: ${appColors.white};
-	}
 
-	${(props) => {
-		if (props.home) {
-			return `
-				flex: 0;
-				padding: 0.5rem 1rem;
-				a {
-					padding: 0;
-				}
-			`;
+		&::before {
+			opacity: 1;
 		}
-		return '';
-	}}
+	}
 `;
 
-function NavItem({
-	home,
-	highlight,
-	name,
-	className,
-	route,
-	setSelectedItem,
-	children,
-}) {
+function NavItem({ highlight, name, className, route, setSelectedItem }) {
 	return (
-		<NavItemContainer highlight={highlight} home={home} className={className}>
-			<NavLink
-				to={route}
-				onClick={() => setSelectedItem(() => name || navItems.home)}
-			>
-				<span>{name || children}</span>
+		<NavItemContainer highlight={highlight} className={className}>
+			<NavLink to={route} onClick={() => setSelectedItem(() => name)}>
+				<span>{name}</span>
 			</NavLink>
 		</NavItemContainer>
 	);
 }
 
 NavItem.propTypes = {
-	name: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	highlight: PropTypes.bool.isRequired,
 	route: PropTypes.string.isRequired,
 	setSelectedItem: PropTypes.func.isRequired,
 	className: PropTypes.string,
-	children: PropTypes.node,
 };
 
 NavItem.defaultProps = {
-	name: '',
-	className: '',
-	children: null,
+	className: null,
 };
 
 export default function Nav() {
-	const [selectedItem, setSelectedItem] = useState(navItems.khoaHoc);
+	const [selectedItem, setSelectedItem] = useState(navItems.courses);
 
 	return (
 		<NavBackground>
-			<StyledNav>
+			<NavBar>
 				<ul>
 					<NavItem
-						route={routes.home.path}
-						home
-						highlight={navItems.home === selectedItem}
-						setSelectedItem={setSelectedItem}
-					>
-						<FontAwesomeIcon icon={faHome} />
-					</NavItem>
-					<NavItem
-						name={navItems.khoaHoc}
+						name={navItems.courses}
 						route={routes.courses.path}
 						primary
-						highlight={navItems.khoaHoc === selectedItem}
+						highlight={navItems.courses === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
-						name={navItems.gioiThieu}
-						route={routes.intro.path}
-						highlight={navItems.gioiThieu === selectedItem}
-						setSelectedItem={setSelectedItem}
-					/>
-					<NavItem
-						name={navItems.giaoVien}
+						name={navItems.teachers}
 						route={routes.teacher.path}
-						highlight={navItems.giaoVien === selectedItem}
+						highlight={navItems.teachers === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
-						name={navItems.bangXepHang}
+						name={navItems.standing}
 						route={routes.standing.path}
-						highlight={navItems.bangXepHang === selectedItem}
+						highlight={navItems.standing === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
-						name={navItems.baiTap}
+						name={navItems.exercises}
 						route={routes.exercise.path}
-						highlight={navItems.baiTap === selectedItem}
+						highlight={navItems.exercises === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
-						name={navItems.thiThu}
+						name={navItems.exams}
 						route={routes.exam.path}
-						highlight={navItems.thiThu === selectedItem}
+						highlight={navItems.exams === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
-						name={navItems.taiLieu}
+						name={navItems.documents}
 						route={routes.document.path}
-						highlight={navItems.taiLieu === selectedItem}
+						highlight={navItems.documents === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 					<NavItem
-						name={navItems.hoiDap}
+						name={navItems.forum}
 						route={routes.question.path}
-						highlight={navItems.hoiDap === selectedItem}
+						highlight={navItems.forum === selectedItem}
+						setSelectedItem={setSelectedItem}
+					/>
+					<NavItem
+						name={navItems.about}
+						route={routes.about.path}
+						highlight={navItems.about === selectedItem}
 						setSelectedItem={setSelectedItem}
 					/>
 				</ul>
-			</StyledNav>
+			</NavBar>
 		</NavBackground>
 	);
 }

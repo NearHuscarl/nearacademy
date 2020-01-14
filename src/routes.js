@@ -1,70 +1,70 @@
 const routes = {
 	register: {
-		name: 'Đăng ký tài khoản',
+		name: 'Register',
 		path: '/register',
 	},
 	login: {
-		name: 'Đăng nhập tài khoản',
+		name: 'Login',
 		path: '/login',
 	},
 	forgotPassword: {
-		name: 'Quên mật khẩu',
+		name: 'Forgot password',
 		path: '/forgot-password',
 	},
 	changePassword: {
-		name: 'Thay đổi mật khẩu',
+		name: 'Change password',
 		path: '/change-password',
 	},
 	profile: {
-		name: 'Tài khoản',
+		name: 'Profile',
 		path: '/profile',
 	},
 	notification: {
-		name: 'Thông báo của bạn',
+		name: 'Notifications',
 		path: '/notifications',
 	},
 	home: {
-		name: 'Trang chủ',
+		name: 'Home',
 		path: '/',
 	},
-	intro: {
-		name: 'Giới thiệu',
-		path: '/intro',
+	about: {
+		name: 'About',
+		path: '/about',
 	},
 	courses: {
-		name: 'Khóa học',
+		name: 'Courses',
 		path: '/courses',
 	},
 	teacher: {
-		name: 'Giáo viên',
+		name: 'Teachers',
 		path: '/teachers',
 	},
 	cart: {
-		name: 'Giỏ hàng của bạn',
+		name: 'Cart',
 		path: '/cart',
 	},
 	checkout: {
-		name: 'Thanh toán đơn hàng',
+		name: 'Checkout',
 		path: '/checkout',
 	},
 	standing: {
-		name: 'Bảng xếp hạng',
+		name: 'Standing',
 		path: '/standing',
 	},
 	exercise: {
-		name: 'Bài tập',
+		name: 'Exercises',
 		path: '/exercises',
 	},
 	exam: {
-		name: 'Đề thi thử',
+		name: 'Exams',
 		path: '/exams',
 	},
 	document: {
-		name: 'Tài liệu',
+		name: 'Documents',
 		path: '/documents',
 	},
 	question: {
-		name: 'Hỏi đáp',
+		name: 'Forum',
 		path: '/questions',
 	},
 };

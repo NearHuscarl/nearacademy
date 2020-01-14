@@ -72,7 +72,7 @@ export default function CourseHeader({ title }) {
 			<Title>{title}</Title>
 			<FontAwesomeIcon icon={faStar} />
 			<ButtonText type='button'>
-				<span>Đánh giá khóa học</span>
+				<span>Review course</span>
 			</ButtonText>
 			<ProgressCircle className='fa'>
 				<CircularProgressbar
@@ -92,7 +92,7 @@ export default function CourseHeader({ title }) {
 				<FontAwesomeIcon className='icon' icon={faTrophy} size='xs' />
 			</ProgressCircle>
 			<ButtonText type='button'>
-				<span>Tiến độ xem bài giảng</span>
+				<span>Your progress</span>
 			</ButtonText>
 			<SizedBox width={1} />
 			<EllipsisButton />

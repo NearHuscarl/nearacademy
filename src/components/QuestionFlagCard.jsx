@@ -61,15 +61,15 @@ const Flag = styled.div`
 function QuestionFlagCard({ id, index, flag, answer, setExerciseQuestionFlag }) {
 	return (
 		<Container>
-			<H4>Câu hỏi {index + 1}</H4>
-			<span>{answer === -1 ? 'Chưa trả lời' : 'Đã trả lời'}</span>
+			<H4>Question {index + 1}</H4>
+			<span>{answer === -1 ? 'Not answered' : 'Answered'}</span>
 			<WhiteButton
 				type='button'
 				onClick={() => {
 					setExerciseQuestionFlag(id, !flag);
 				}}
 			>
-				{flag ? 'Bỏ đặt cờ' : 'Đặt cờ'}
+				{flag ? 'Unbookmark' : 'Bookmark'}
 			</WhiteButton>
 			<Flag flagged={flag}>
 				<FontAwesomeIcon icon={faFlag} />

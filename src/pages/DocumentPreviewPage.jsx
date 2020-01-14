@@ -55,41 +55,39 @@ const Download = styled.div`
 const DocumentPreviewPage = () => {
 	return (
 		<main>
-			<Breadcrumb path={[routes.home, routes.document, 'Bài tập Amin - Amino Axit - Peptit - Protein']} />
+			<Breadcrumb
+				path={[routes.home, routes.document, documentDetail.title]}
+			/>
 			<ContentContainer>
 				<Content>
 					<ColLeft>
 						<DocumentPreviewSection document={documentDetail} />
 						<SizedBox height={0.5} />
-						<H3>Giới thiệu chung</H3>
+						<H3>Overview</H3>
 						<Line />
 						<Paragraph>{documentDetail.summary}</Paragraph>
-						<H3>Trích dẫn từ tài liệu</H3>
+						<H3>Document preview</H3>
 						<Line />
 						<Paragraph>{documentDetail.paper}</Paragraph>
-						<H3>Liên kết tải tài liệu</H3>
+						<H3>Download link</H3>
 						<Line />
-						<H4>Liên kết tải tài liệu chính thức</H4>
+						<H4>Official link</H4>
 						<Download>
-							<div>
-								11 đề tham khảo môn Văn chốt thi THPT Quốc gia 2019
-							</div>
+							<div>{documentDetail.title}</div>
 							<Button type='button'>
 								<FontAwesomeIcon icon={faDownload} />
-								<span>Tải tài liệu</span>
+								<span>Download</span>
 							</Button>
 						</Download>
-						<H4>Liên kết tải tài liệu dự phòng</H4>
+						<H4>Mirror link</H4>
 						<Download>
-							<div>
-								11 đề tham khảo môn Văn chốt thi THPT Quốc gia 2019
-							</div>
+							<div>{documentDetail.title}</div>
 							<Button type='button'>
 								<FontAwesomeIcon icon={faDownload} />
-								<span>Tải tài liệu</span>
+								<span>Download</span>
 							</Button>
 						</Download>
-						<H3>Tìm thêm</H3>
+						<H3>Tags</H3>
 						<Line />
 						<TagGroup>
 							{documentDetail.tags.map((t) => (
@@ -98,7 +96,7 @@ const DocumentPreviewPage = () => {
 								</Bold>
 							))}
 						</TagGroup>
-						<H3>Bình luận</H3>
+						<H3>Comments</H3>
 						<CommentSection />
 					</ColLeft>
 					<ColRight>

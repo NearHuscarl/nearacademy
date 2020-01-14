@@ -73,7 +73,7 @@ export default function CourseProgressList({ courseProgress }) {
 	return (
 		<Container>
 			<Header>
-				<H4>Nội dung khóa học</H4>
+				<H4>Course Content</H4>
 				<FontAwesomeIcon icon={faTimes} />
 			</Header>
 			<ul>
@@ -85,7 +85,7 @@ export default function CourseProgressList({ courseProgress }) {
 							startOpen={i === 0}
 							foldedContent={getFoldedContentComponent(c.videos)}
 						>
-							<H4>{`Phần ${i + 1}: ${c.title}`}</H4>
+							<H4>{`Part ${i + 1}: ${c.title}`}</H4>
 							<Stats>
 								<span>{`0/${c.videos.length} | ${c.length}`}</span>
 							</Stats>

@@ -11,7 +11,7 @@ const H1Small = styled(H1)`
 export default function CourseDetailPageQuestions() {
 	return (
 		<section>
-			<H1Small>Bình luận & Hỏi đáp</H1Small>
+			<H1Small>Questions and Answers</H1Small>
 			<CommentSection />
 		</section>
 	);

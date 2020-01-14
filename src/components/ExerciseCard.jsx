@@ -32,6 +32,15 @@ const Container = styled(Card)`
 		margin-bottom: 0;
 	}
 `;
+const Body = styled.div`
+	height: 10.5rem;
+
+	h4 {
+		/* limit maxlines to 2. trim otherwise */
+		max-height: 4rem;
+		overflow: hidden;
+	}
+`;
 const Description = styled.p`
 	font-weight: 600;
 	font-size: 1.3rem;
@@ -44,14 +53,14 @@ export default function ExerciseCard({ image, title, description, date }) {
 	return (
 		<Container background='white' noPadding>
 			<img src={image} alt='exercise preview' />
-			<div>
+			<Body>
 				{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 				<a href=''>
 					<H4>{title}</H4>
 				</a>
 				<Description>{description}</Description>
-				<Date>{`Phát hành: ${date}`}</Date>
-			</div>
+				<Date>{`Date: ${date}`}</Date>
+			</Body>
 		</Container>
 	);
 }

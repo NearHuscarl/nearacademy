@@ -60,18 +60,18 @@ export default function ExerciseList({ list }) {
 							</H4>
 							<Description>
 								<Bold>
-									{`Môn ${e.subject} - ${e.questionCount} câu hỏi - Trình độ ${e.difficulty}`}
+									{`${e.subject} - ${e.questionCount} questions - ${e.difficulty} difficulty`}
 								</Bold>
 							</Description>
 							<Description>{e.description}</Description>
 							<Stats>
-								<span>Biên soạn: </span>
+								<span>Teacher: </span>
 								<Bold as='span'>{e.teacher} </Bold>
-								<span> - Phát hành: </span>
+								<span> - Date: </span>
 								<Bold as='span'>{e.publish} </Bold>
-								<span> - Lượt xem: </span>
+								<span> - Views: </span>
 								<Bold as='span'>{e.views.toLocaleString()}</Bold>
-								<span> - Lượt làm bài: </span>
+								<span> - Attempts: </span>
 								<Bold as='span'>{e.attempts.toLocaleString()}</Bold>
 							</Stats>
 							<TagGroup>

@@ -77,11 +77,11 @@ export function Notifications({ list }) {
 	return (
 		<>
 			<Top className='top'>
-				<Bold className='title'>Thông báo</Bold>
+				<Bold className='title'>Notifications</Bold>
 				<ButtonText className='top-button'>
-					Đánh dấu tất cả là đã đọc
+					Mark all as read
 				</ButtonText>
-				<ButtonText className='top-button'>Cài đặt</ButtonText>
+				<ButtonText className='top-button'>Settings</ButtonText>
 			</Top>
 			<ul>
 				{list.map((n, i) => {
@@ -117,7 +117,7 @@ function TooltipContent() {
 			<Notifications list={notifications.slice(0, 3)} />
 			<Bottom>
 				<ButtonText onClick={() => history.push(routes.notification.path)}>
-					Xem tất cả
+					See all
 				</ButtonText>
 			</Bottom>
 		</Container>

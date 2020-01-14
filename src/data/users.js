@@ -118,6 +118,8 @@ export const user = (id) => ({
 	...users.find((u) => u.id === id),
 });
 
+export const randomUser = () => sample(users);
+
 export {
 	chihuahua,
 	near,

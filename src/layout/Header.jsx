@@ -1,6 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { faBell, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import {
+	faBell,
+	faShoppingCart,
+	faCheck,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Nav from '../components/Nav';
 import Logo from '../components/Logo';
@@ -66,8 +70,12 @@ const Top = styled.div`
 `;
 
 const Support = styled.span`
-	color: ${appColors.greyDark1};
 	margin-right: auto;
+	font-size: 1.2rem;
+
+	.grey {
+		color: ${appColors.greyDark1};
+	}
 `;
 const Profile = styled(ButtonText)`
 	display: flex;
@@ -88,20 +96,11 @@ const ProfileName = styled.span`
 	display: inline-flex;
 	align-items: center;
 `;
-const CartButtonText = styled(ButtonText)`
-	&:hover,
-	&:active,
-	&:focus {
-		.counter {
-			color: currentColor;
-		}
-	}
-
-	.counter {
-		color: ${appColors.red};
-		font-weight: 600;
-		transition: color 0.25s;
-	}
+const Counter = styled.span`
+	position: absolute;
+	top: -1.1rem;
+	right: -1.1rem;
+	font-size: 4rem;
 `;
 
 const Main = styled.div`
@@ -121,15 +120,17 @@ function Header() {
 			<NotificationTooltip />
 			<TopBackground>
 				<Top>
-					Hotline: 1900-0000&nbsp;
-					<Support>(Thời gian hỗ trợ từ 7h - 22h)</Support>
+					<Support>
+						<span>Hotline: 1900-0000&nbsp;</span>
+						<span className='grey'>(Support from 7AM to 10PM)</span>
+					</Support>
 					<ProfileTooltip>
 						<Profile>
 							<ProfileImage
 								src={activeUser.avatar}
 								alt='profile avatar'
 							/>
-							<ProfileName>{`Xin chào, ${activeUser.name}`}</ProfileName>
+							<ProfileName>{`Hello ${activeUser.name}`}</ProfileName>
 						</Profile>
 					</ProfileTooltip>
 					<NotificationButton />
@@ -141,14 +142,16 @@ function Header() {
 					placeholder='Search for courses, exercises, documents...'
 					width={32}
 				/>
-				<CartButtonText
+				<ButtonText
 					type='button'
 					onClick={() => history.push(routes.cart.path)}
 				>
-					<FontAwesomeIcon icon={faShoppingCart} />
-					<span>Các khóa học đã chọn </span>
-					<span className='counter'>(5)</span>
-				</CartButtonText>
+					<span>Your cart </span>
+					<span className='fa-layers fa-fw'>
+						<FontAwesomeIcon icon={faShoppingCart} size='lg' />
+						<Counter className='fa-layers-counter fa-3x'>5</Counter>
+					</span>
+				</ButtonText>
 			</Main>
 			<StickyHeader>
 				<Nav />

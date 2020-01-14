@@ -43,23 +43,23 @@ export default function DocumentPreviewSection({ document }) {
 		<Container>
 			<img src={document.image} alt='document preview' />
 			<H2>{document.title}</H2>
-			<Bold>{`Môn ${document.subject}`}</Bold>
+			<Bold>{`Subject: ${document.subject}`}</Bold>
 			<Stats>
-				<span>Phát hành: </span>
+				<span>Date: </span>
 				<Bold as='span'>{document.publishDate} </Bold>
-				<span> - Lượt xem: </span>
+				<span> - Views: </span>
 				<Bold as='span'>{document.views.toLocaleString()}</Bold>
-				<span> - Lượt tải: </span>
+				<span> - Downloads: </span>
 				<Bold as='span'>{document.downloads.toLocaleString()}</Bold>
 			</Stats>
 			<div>
 				<Button type='button'>
 					<FontAwesomeIcon icon={faPlay} />
-					<span>Xem trực tuyến</span>
+					<span>View Online</span>
 				</Button>
 				<OpaqueButton type='button'>
 					<FontAwesomeIcon icon={faDownload} />
-					<span>Tải tài liệu</span>
+					<span>Download</span>
 				</OpaqueButton>
 			</div>
 		</Container>

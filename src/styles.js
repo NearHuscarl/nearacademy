@@ -24,6 +24,7 @@ export const curves = {
 	easeOutCirc: 'cubic-bezier(0.075, 0.82, 0.165, 1);',
 	easeInBack: 'cubic-bezier(0.6, -0.28, 0.735, 0.045);',
 	easeOutBack: 'cubic-bezier(0.175, 0.885, 0.32, 1.275);',
+	easeOutSine: 'cubic-bezier(0.39, 0.575, 0.565, 1)',
 };
 
 export const appColors = {
@@ -31,10 +32,12 @@ export const appColors = {
 	primary: '#2AABE4',
 	primaryLight: '#94d5f1',
 	secondary: '#Fc9e31',
-	secondaryDark: '#a8890a',
-	tertiary: '#c9e167',
+	secondaryDark: '#ef8f31',
+	tertiary: '#5ac18e',
 	red: '#e02020',
 	lightRed: '#ef4c45',
+	orange: '#Fc9e31',
+	orangeDark: '#ef8f31',
 	lightGreen: '#6dc33b',
 	green: '#45ae07',
 	yellow: '#F1C40F',

@@ -42,7 +42,7 @@ const AppRouter = () => {
 		login,
 		forgotPassword,
 		changePassword,
-		intro,
+		about,
 		courses,
 		teacher,
 		cart,
@@ -76,7 +76,7 @@ const AppRouter = () => {
 					component={AnnouncementPage}
 					exact
 				/>
-				<Route path={intro.path} component={HomePage} exact />
+				<Route path={about.path} component={HomePage} exact />
 				<Route path={register.path} component={RegisterPage} exact />
 				<Route path={login.path} component={LoginPage} exact />
 				<Route

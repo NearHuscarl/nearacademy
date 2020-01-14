@@ -52,19 +52,19 @@ export default function CourseDetailPageOverview({ course }) {
 				<Stats>
 					<StarRating score={course.rating} maxScore={5} />
 					<SizedBox width={1} />
-					<span>{`${course.rating}/5 (${course.ratingCount} lượt đánh giá)`}</span>
+					<span>{`${course.rating}/5 (${course.ratingCount} ratings)`}</span>
 					<SizedBox width={1} />
-					<span>{`${course.students} lượt đăng ký học`}</span>
+					<span>{`${course.students} students enrolled`}</span>
 				</Stats>
 				<Stats>
-					<span>{`Giảng viên: ${course.teacher}`}</span>
+					<span>{`Teacher: ${course.teacher}`}</span>
 					<SizedBox width={1} />
-					<span>{`Lần cập nhật cuối: ${course.lastUpdate}`}</span>
+					<span>{`Last updated: ${course.lastUpdate}`}</span>
 				</Stats>
 			</Summary>
 			<FeatureBox features={course.features} />
 			<Requirements>
-				<H2>Yêu cầu</H2>
+				<H2>Requirements</H2>
 				<ul>
 					{course.requirements.map((f, i) => {
 						const key = i;
@@ -73,7 +73,7 @@ export default function CourseDetailPageOverview({ course }) {
 				</ul>
 			</Requirements>
 			<div>
-				<H2>Mô tả khóa học</H2>
+				<H2>Description</H2>
 				<Paragraph>{course.courseDescription}</Paragraph>
 			</div>
 			<TeacherDetail teacher={biologyTeacher} />

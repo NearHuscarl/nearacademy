@@ -10,37 +10,37 @@ const user2 = randomUser();
 
 const notifications = [
 	{
-		image: user1.avatar,
-		body: `[${user1.id}] đã trả lời câu hỏi của bạn`,
-		date: '20 phút trước',
-	},
-	{
 		image: user2.avatar,
-		body: `[${user2.id}] đã trả lời câu hỏi của bạn`,
-		date: '21 phút trước',
+		body: `[${user2.id}] has liked your answer`,
+		date: '20 minutes ago',
+	},
+	{
+		image: user1.avatar,
+		body: `[${user1.id}] has replied to your answer`,
+		date: '21 minutes ago',
 	},
 	{
 		image: logo,
 		body:
-			'[NearAcademy] giảm giá 50% tất cả khóa học chỉ 2 ngày 01/11 và 02/11/2019',
-		date: '5 ngày trước',
-	},
-	{
-		image: logo,
-		body: '[NearAcademy] giảm 30% tất cả các khóa học chỉ 2 ngày 22/10 và 23/10',
-		date: '1 tháng trước',
+			'[NearAcademy] discount 50% on all courses in only 2 days from 01/11 to 02/11/2019',
+		date: '5 days ago',
 	},
 	{
 		image: logo,
 		body:
-			'Mua 1 khóa học tặng 1 khóa học duy nhất trên [NearAcademy] trong năm 2019',
-		date: '4 tháng trước',
+			'[NearAcademy] discount 30% on all courses in only 2 days from 22/10 to 23/10',
+		date: '1 month ago',
+	},
+	{
+		image: logo,
+		body: 'Buy one get one free course on [NearAcademy] in 2019',
+		date: '4 month ago',
 	},
 	{
 		image: logo,
 		body:
-			'[NearAcademy] giảm giá 50% tất cả khóa học chỉ 2 ngày 15/7 và 16/7/2019',
-		date: '4 tháng trước',
+			'[NearAcademy] discount 50% on all courses in only 2 days from 15/7 to 16/7/2019',
+		date: '4 month ago',
 	},
 ];
 

@@ -31,7 +31,7 @@ function ReviewStats({ percent, totalReview, star }) {
 	return (
 		<ReviewStatsContainer>
 			<ReviewBar value={percent * 100}>
-				<PercentageBarText>{`${reviews} lượt đánh giá`}</PercentageBarText>
+				<PercentageBarText>{`${reviews} ratings`}</PercentageBarText>
 			</ReviewBar>
 			<StarRating score={star} maxScore={5} />
 			<Percent>{`${(percent * 100).toFixed(0)}%`}</Percent>
@@ -85,13 +85,13 @@ export default function CourseReviewSection({ review }) {
 	const { totalReview } = review;
 	return (
 		<>
-			<H2>Đánh giá của người học</H2>
+			<H2>Student feedback</H2>
 			<SizedBox height={1.5} />
 			<Summary>
 				<Score>
 					<ScoreNumber>{review.rating}</ScoreNumber>
 					<StarRating score={review.rating} maxScore={5} />
-					<div>Đánh giá</div>
+					<div>Course Rating</div>
 				</Score>
 				<Stats>
 					<ReviewStats
@@ -122,8 +122,8 @@ export default function CourseReviewSection({ review }) {
 				</Stats>
 			</Summary>
 			<Search>
-				<H2>Các ý kiến đánh giá</H2>
-				<SearchBar placeholder='Tìm ý kiến đánh giá...' width={30} />
+				<H2>Reviews</H2>
+				<SearchBar placeholder='Find reviews...' width={30} />
 			</Search>
 			<SizedBox height={1.5} />
 			{review.reviews.map((r, i) => {

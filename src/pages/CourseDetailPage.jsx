@@ -7,7 +7,7 @@ import CourseProgressList from '../components/CourseProgressList';
 import CourseDetailPageOverview from './CourseDetailPage_Overview';
 import CourseDetailPageQuestions from './CourseDetailPage_Questions';
 import CourseDetailPageAnnouncement from './CourseDetailPage_Announcement';
-import CourseDetailPageFlag from './CourseDetailPage_Flag';
+import CourseDetailPageBookmark from './CourseDetailPage_Bookmark';
 import styled from '../styles';
 import { courseDetail } from '../data/courses';
 
@@ -40,10 +40,10 @@ const CourseDetailPage = () => {
 					<VideoPlayer thumbnail={ThumbnailImage} />
 					<StyledTabs>
 						<TabList>
-							<Tab>Tổng quan</Tab>
-							<Tab>Bình luận & Hỏi đáp</Tab>
-							<Tab>Đánh dấu</Tab>
-							<Tab>Thông báo</Tab>
+							<Tab>Overview</Tab>
+							<Tab>Q&A</Tab>
+							<Tab>Bookmarks</Tab>
+							<Tab>Announcements</Tab>
 						</TabList>
 						<TabPanel>
 							<CourseDetailPageOverview course={courseDetail} />
@@ -52,7 +52,7 @@ const CourseDetailPage = () => {
 							<CourseDetailPageQuestions />
 						</TabPanel>
 						<TabPanel>
-							<CourseDetailPageFlag />
+							<CourseDetailPageBookmark />
 						</TabPanel>
 						<TabPanel>
 							<CourseDetailPageAnnouncement />

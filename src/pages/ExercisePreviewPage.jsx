@@ -7,7 +7,7 @@ import { exerciseProps, exerciseRankProps } from '../utilities/proptypes';
 import ExercisePreviewSection from '../components/ExercisePreviewSection';
 import ScoreCard from '../components/ScoreCard';
 import { SizedBox } from '../components/Common';
-import { H4 } from '../components/Headings';
+import { H2 } from '../components/Headings';
 import TeacherDetail from '../components/TeacherDetail';
 import Breadcrumbs, { routes } from '../components/Breadcrumb';
 import ContentContainer from '../layout/ContentContainer';
@@ -35,7 +35,7 @@ const Top = styled.div`
 		margin-left: 3.5rem;
 	}
 `;
-const SubHeader = styled(H4)`
+const SubHeader = styled(H2)`
 	flex: 0 0 100%;
 	margin-top: 1.6rem;
 `;
@@ -54,15 +54,15 @@ function ExercisePreviewPage({
 					<Top>
 						<div>
 							<ExercisePreviewSection exercise={exercise} />
-							<SubHeader>Giới thiệu chung</SubHeader>
+							<SubHeader>Overview</SubHeader>
 							<div>{exercise.description}</div>
 						</div>
 						<ScoreCard />
 					</Top>
 					<Tabs className='tabs'>
 						<TabList>
-							<Tab>Bảng xếp hạng</Tab>
-							<Tab>Lịch sử làm bài</Tab>
+							<Tab>Standing</Tab>
+							<Tab>History</Tab>
 						</TabList>
 						<TabPanel>
 							<ExerciseStanding list={standing.slice(0, 4)} />
@@ -76,15 +76,15 @@ function ExercisePreviewPage({
 					<SizedBox height={3} />
 					<ExerciseCarousel
 						list={chemistryExercises}
-						title='Các bài tập có liên quan'
+						title='Related exercises'
 					/>
 					<ExerciseCarousel
 						list={nationalExams}
-						title='Các bài tập nổi bật'
+						title='Trending exercises'
 					/>
 					<ExerciseCarousel
 						list={nationalExams}
-						title='Các bài tập mới nhất'
+						title='Newest exercises'
 					/>
 				</Content>
 			</ContentContainer>

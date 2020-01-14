@@ -31,8 +31,7 @@ export const ColumnLeft = styled.div`
 `;
 
 export const ColumnRight = styled.div`
-	flex: 0 1;
-
+	width: 35rem;
 	button {
 		width: 100%;
 		margin-bottom: 1.7rem;
@@ -60,8 +59,8 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 		<QuestionPage>
 			<Breadcrumb path={[routes.home, routes.question]} />
 			<Filters
-				title='Danh sách câu hỏi'
-				subTitle='Có tất cả 300 câu hỏi trong danh sách'
+				title='All Questions'
+				subTitle='There are more than 1900 questions here'
 			/>
 			<ContentContainer>
 				<Content>
@@ -74,25 +73,25 @@ function QuestionsPage({ questions, hotQuestions, newQuestions }) {
 							className='bold mb-md'
 							onClick={() => history.push('/questions/ask')}
 						>
-							Đặt câu hỏi mới
+							Ask a new question
 						</Button>
-						<H3>Thẻ nổi bật</H3>
+						<H3>Popular tags</H3>
 						<Tags>
-							<Tag>Hàm số</Tag>
-							<Tag>Tính số mol</Tag>
-							<Tag>Hệ tọa độ Oxyz</Tag>
-							<Tag>Hình học không gian</Tag>
-							<Tag>Đạo hàm</Tag>
-							<Tag>Hóa hữu cơ</Tag>
-							<Tag>Điện trở</Tag>
+							<Tag>Python</Tag>
+							<Tag>Vue</Tag>
+							<Tag>Vimscript</Tag>
+							<Tag>Flutter</Tag>
+							<Tag>C#</Tag>
+							<Tag>GameDev</Tag>
+							<Tag>SQL</Tag>
 						</Tags>
 						<QuestionListSideBar
-							title='Câu hỏi nổi bật'
+							title='Trending questions'
 							questions={hotQuestions}
 							className='mb-md'
 						/>
 						<QuestionListSideBar
-							title='Câu hỏi mới nhất'
+							title='New questions'
 							questions={newQuestions}
 							className='mb-md'
 						/>

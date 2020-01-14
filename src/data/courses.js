@@ -1,19 +1,26 @@
 import range from 'lodash/range';
+import sample from 'lodash/sample';
 import PreviewBiology from '../../public/images/course-biology.png';
 import PreviewPhysics from '../../public/images/course-physics.png';
 import PreviewMath from '../../public/images/course-math.png';
 import PreviewEnglish from '../../public/images/course-english.png';
 import PreviewChemistry from '../../public/images/course-chemistry.png';
+import { maleNames, femaleNames } from './names';
+import year from './year';
+
+const randomMaleName = () => sample(maleNames);
+const randomFemaleName = () => sample(femaleNames);
+const description = (subject) =>
+	`The ultimate video tutorial and prep program for ${subject} domination using the new version of the national exam.`;
 
 const _courses = [
 	{
 		id: 1,
-		title: 'Super Plus: Chinh phục bài tập nâng cao - Môn Sinh học',
+		title: 'Super Plus: Master Advance Exercises - Biology',
 		image: PreviewBiology,
-		subject: 'Sinh học',
-		teacher: 'Thầy Thịnh Nam',
-		description:
-			'Khóa học giúp hệ thống lại các điểm kiến thức cũng như các phương pháp giải các dạng bài tập nâng cao trong chương trình sinh học THPT.',
+		subject: 'Biology',
+		teacher: randomMaleName(),
+		description: description('biology'),
 		rating: 3,
 		ratingCount: 620,
 		price: 1200000,
@@ -21,19 +28,18 @@ const _courses = [
 		publishDate: '31/10/2019',
 		students: 1200,
 		tags: [
-			'Giải bài tập nâng cao',
-			'Chinh phục bài tập sinh học',
-			'Bài tập sinh học nâng cao',
+			'Advance exercises',
+			'Master Biology exercises',
+			'Advance Biolology exercises',
 		],
 	},
 	{
 		id: 2,
-		title: 'Super Plus: Luyện thi THPT QG nâng cao 2020 môn Vật lý',
+		title: `Super Plus: Prepare for advance Physics national exam ${year}`,
 		image: PreviewPhysics,
-		subject: 'Vật lý',
-		teacher: 'Thầy Thái Ngọ',
-		description:
-			'Khóa học giúp hệ thống lại các điểm kiến thức cũng như các phương pháp giải các dạng bài tập nâng cao trong đề thi THPT QG 2020 môn Vật Lý.',
+		subject: 'Physics',
+		teacher: randomMaleName(),
+		description: description('physics'),
 		rating: 3,
 		ratingCount: 620,
 		price: 1450000,
@@ -41,19 +47,18 @@ const _courses = [
 		publishDate: '31/10/2019',
 		students: 1020,
 		tags: [
-			'Luyện thi THPT QG',
-			'Luyện thi THPT QG môn Vật Lý',
-			'Bài tập Vật Lý nâng cao',
+			'National exam prep',
+			'Physics national exam prep',
+			'Advance Physics exercises',
 		],
 	},
 	{
 		id: 3,
-		title: 'Super Plus: Luyện thi THPT QG nâng cao 2020 môn Toán học',
+		title: 'Super Plus: Prepare for advance national exam - Math',
 		image: PreviewMath,
-		subject: 'Toán học',
-		teacher: 'Thầy Nguyễn Tiến Đạt',
-		description:
-			'Khóa học giúp hệ thống lại các điểm kiến thức cũng như các phương pháp giải các dạng bài tập nâng cao trong đề thi THPT QG 2020 môn Toán học.',
+		subject: 'Math',
+		teacher: randomMaleName(),
+		description: description('math'),
 		rating: 3,
 		ratingCount: 720,
 		price: 1250000,
@@ -61,19 +66,18 @@ const _courses = [
 		publishDate: '31/10/2019',
 		students: 1605,
 		tags: [
-			'Luyện thi THPT QG',
-			'Luyện thi THPT QG môn Toán học',
-			'Bài tập Toán học nâng cao',
+			'National exam prep',
+			'Math national exam prep',
+			'Advance Math exercises',
 		],
 	},
 	{
 		id: 4,
-		title: 'Super Plus: Luyện thi THPT QG nâng cao 2020 môn Tiếng anh',
+		title: `Super Plus: Prepare for advance English national exam ${year}`,
 		image: PreviewEnglish,
-		subject: 'Tiếng anh',
-		teacher: 'Cô Nguyễn Phương',
-		description:
-			'Khóa học giúp hệ thống lại các điểm kiến thức cũng như các phương pháp giải các dạng bài tập nâng cao trong đề thi THPT QG 2020 môn Tiếng anh.',
+		subject: 'English',
+		teacher: randomFemaleName(),
+		description: description('english'),
 		rating: 3,
 		ratingCount: 720,
 		price: 1250000,
@@ -81,19 +85,18 @@ const _courses = [
 		publishDate: '31/10/2019',
 		students: 1605,
 		tags: [
-			'Luyện thi THPT QG',
-			'Luyện thi THPT QG môn Tiếng anh',
-			'Bài tập Tiếng anh nâng cao',
+			'National exam prep',
+			'English national exam prep',
+			'Advance English exercises',
 		],
 	},
 	{
 		id: 5,
-		title: 'Super Plus: Luyện thi THPT QG nâng cao 2020 môn Hóa học',
+		title: `Super Plus: Prepare for advance Chemistry national exam ${year}`,
 		image: PreviewChemistry,
-		subject: 'Hóa học',
-		teacher: 'Thầy Lê Phạm Thành',
-		description:
-			'Khóa học giúp hệ thống lại các điểm kiến thức cũng như các phương pháp giải các dạng bài tập nâng cao trong đề thi THPT QG 2020 môn Hóa học.',
+		subject: 'Chemistry',
+		teacher: randomMaleName(),
+		description: description('chemistry'),
 		rating: 3,
 		ratingCount: 720,
 		price: 1250000,
@@ -101,9 +104,9 @@ const _courses = [
 		publishDate: '31/10/2019',
 		students: 1605,
 		tags: [
-			'Luyện thi THPT QG',
-			'Luyện thi THPT QG môn Hóa học',
-			'Bài tập Hóa học nâng cao',
+			'National exam prep',
+			'Chemistry national exam prep',
+			'Advance Chemistry exercises',
 		],
 	},
 ];
@@ -117,81 +120,78 @@ export const courseDetail = {
 	videoLength: '24:00:00',
 	summary: [
 		{
-			title: 'Tổng quan về khóa học',
+			title: 'Course summary',
 			length: '10:00',
 			videos: [
 				{
-					title: 'Giới thiệu về khóa học',
-					summary: 'Giới thiệu tổng quan về nội dung của khóa học',
+					title: 'Introduction to the course',
+					summary: 'Help students get an overview of the course',
 					length: '06:00',
 					preview: true,
 				},
 				{
-					title: 'Hướng dẫn tài tài liệu của khóa học',
+					title: 'How to download course documents',
 					length: '02:00',
 					preview: false,
 				},
 				{
-					title: 'Hướng dẫn đăng câu hỏi thắc mắc',
+					title: 'How to post question for help on forum',
 					length: '02:00',
 					preview: false,
 				},
 			],
 		},
 		{
-			title: 'Phương pháp giải bài tập Sinh học nâng cao 12',
+			title: 'Solving advance Biology exercises 12',
 			length: '08:00:00',
 			videos: range(0, 100).map((i) => ({
-				title: 'Giải bài tập sinh học ' + i,
+				title: 'Biology exercise ' + i,
 				length: '06:00',
 				preview: false,
 			})),
 		},
 		{
-			title: 'Phương pháp giải bài tập nâng cao trong đề thi',
+			title: 'Solving advance Biology exams',
 			length: '08:00:00',
 			videos: range(0, 50).map((i) => ({
-				title: 'Giải bài tập sinh học ' + i,
+				title: 'Biology exercise ' + i,
 				length: '06:00',
 				preview: false,
 			})),
 		},
 		{
-			title: 'Phương pháp giải nhanh với máy tính casio',
+			title: 'Quickly solving exercises using casio calculator',
 			length: '04:00:00',
 			videos: range(0, 50).map((i) => ({
-				title: 'Giải bài tập sinh học ' + i,
+				title: 'Biology exercise ' + i,
 				length: '06:00',
 				preview: false,
 			})),
 		},
 		{
-			title: 'Luyện giải đề thi mẫu',
+			title: 'Sample exam prep',
 			length: '03:50:00',
 			videos: range(0, 47).map((i) => ({
-				title: 'Giải bài tập sinh học ' + i,
+				title: 'Biology exercise ' + i,
 				length: '06:00',
 				preview: false,
 			})),
 		},
 	],
 	features: [
-		'Phương pháp giải các dạng bài tập nâng cao trong chương trình Sinh học lớp 12',
-		'Phương pháp giải các dạng bài tập nâng cao trong đề thi THPT QG môn Sinh học',
-		'Cách sử dụng máy tính casio để giải nhanh các dạng bài tập trắc nghiệm sinh học nâng cao',
-		'Luyện giải các đề thi mẫu nâng cao do thầy Thịnh Nam biên soạn',
+		'How to solve advance Biology exercises in 12th grade curriculum.',
+		'How to solve advance Biology exercises in national exam.',
+		'How to quickly solve advance Biology multiple-choice questions using casio calculator.',
+		'Get familiar with multiple advance sample tests composed by Thịnh Nam.',
 	],
 	requirements: [
-		'Sử dụng máy tính, điện thoại có kết nối với internet.',
-		'Nắm chắc kiến thức Sinh học 12 cơ bản.',
+		'Basic Biology knowledge in 12th grade curriculum.',
+		'Computer or smartphone with internet connection.',
+		'Casino calculator.',
 	],
-	courseDescription: `Thầy tin rằng, khóa học sẽ giúp các em xử lý bài tập nhanh hơn và đặc biệt là kĩ năng xử lý đối với các dạng bài tập vận dụng và vận dụng cao.
+	courseDescription: `This course is designed to help you [master the biology portion] of the new national exam through [biology hacks] and [biology fundamentals]. The hardest part of the biology national exam is understanding what the question is asking you. In my course you will learn how to read the national exam biology questions and how to solve all the problems that the exam can throw at you along with a study plan.
 
-	Khóa học này cùng khóa [SUPER-PLUS: CHINH PHỤC BÀI TẬP SINH HỌC] là giải pháp toàn diện cho các em học sinh mục tiêu điểm môn Sinh từ 8 đến 10.
-
-	Đề thi gồm toàn câu hỏi vận dụng và vận dụng cao, câu hỏi đếm mệnh đề. Qua đó các em được luyện tập thật nhuần nhuyễn kiến thức. 
-
-	Khoá [SUPER-PLUS: CHINH PHỤC BÀI TẬP SINH HỌC] đảm bảo bao phủ tất cả các dạng câu hỏi vận dụng và vận dụng cao. Từ đó giúp các em tự tin đi thi chinh phục ngưỡng điểm cao và tuyệt đối trong kì  thi THPT Quốc gia năm 2020.`,
+	I have spent [five years] teaching national exam classes and tutoring students on the national exam biology. I have practiced hundreds of problems and narrowed down the most common problems on the national exam and the easiest way to solve them. All of my students have improved their scores after tutoring with me and I am going to share my techniques with you in this course.`,
 };
 
 export default courses;

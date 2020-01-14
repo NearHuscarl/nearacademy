@@ -19,8 +19,8 @@ import { getExercise } from '../store/storeHelper';
 const AnswerText = styled.span`
 	font-weight: 600;
 	color: ${(props) => {
-		if (props.answer !== 'Chưa trả lời') {
-			if (props.answer === 'Trả lời đúng') {
+		if (props.answer !== 'Not answered') {
+			if (props.answer === 'Correct') {
 				return appColors.green;
 			}
 			return appColors.red;
@@ -28,26 +28,29 @@ const AnswerText = styled.span`
 		return 'inherit';
 	}};
 `;
+const Container = styled(Card)`
+	width: 14rem;
+`;
 
 function QuestionCard({ answer }) {
 	const noAnswer = answer.userAnswer === -1;
 	const trueAnswer = answer.userAnswer === answer.answer;
-	let text = 'Chưa trả lời';
+	let text = 'Not answered';
 	if (!noAnswer) {
 		if (trueAnswer) {
-			text = 'Trả lời đúng';
+			text = 'Correct';
 		} else {
-			text = 'Trả lời sai';
+			text = 'Incorrect';
 		}
 	}
 	return (
-		<Card>
-			<H4 className='mb-0'>Câu hỏi 01</H4>
+		<Container>
+			<H4 className='mb-0'>Question 01</H4>
 			<AnswerText className='mb-sm' answer={text}>
 				{text}
 			</AnswerText>
 			<WhiteButton type='button'>Lưu lại</WhiteButton>
-		</Card>
+		</Container>
 	);
 }
 
@@ -55,13 +58,14 @@ const ResultSummary = styled.div`
 	padding-top: 1.5rem;
 `;
 const SummaryDescription = styled.div`
+	background-color: rgba(0, 0, 0, 0.2);
 	background-blend-mode: darken;
 	background-image: url(${congratsImg});
 	background-size: cover;
 	background-position: center;
 	color: ${appColors.white};
 
-	height: 18.3rem;
+	height: 20rem;
 	border-radius: ${theme.borderRound};
 
 	position: relative;
@@ -105,9 +109,10 @@ const DetailCol = styled.div`
 	}
 `;
 const DetailCol1 = styled(DetailCol)`
-	width: 16rem;
 `;
-const DetailCol2 = styled(DetailCol)``;
+const DetailCol2 = styled(DetailCol)`
+	width: 100%;
+`;
 const DetailCol3 = styled(DetailCol)`
 	width: 21rem;
 `;
@@ -128,22 +133,22 @@ const ExerciseResultPage = ({
 				<H2
 					sub
 					className='mt-tn'
-				>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</H2>
+				>{`${questionCount} questions - ${difficulty}`}</H2>
 			</H2>
 			<Line />
 			<ResultSummary>
-				<H2 className='mb-sm'>Kết quả tổng quan</H2>
+				<H2 className='mb-sm'>Result summary</H2>
 				<SummaryDescription>
 					<SummaryScore>{`${score}/${questions.length}`}</SummaryScore>
-					<div>{`${timeTaken.minutes} phút ${timeTaken.seconds} giây`}</div>
+					<div>{`${timeTaken.minutes} mins ${timeTaken.seconds} secs`}</div>
 					<SummaryExp>+600 exp</SummaryExp>
 					<SummaryRank>
-						Xếp hạng 120 trên tổng số 360 người tham gia làm bài
+						Rank 120 out of 360 students participating
 					</SummaryRank>
 				</SummaryDescription>
 			</ResultSummary>
 			<Detail>
-				<H2 className='mb-sm'>Đáp án và lời giải chi tiết</H2>
+				<H2 className='mb-sm'>Answer</H2>
 				<DetailContent>
 					<DetailCol1>
 						<QuestionCard answer={questions[selectedQuestion]} />
@@ -151,7 +156,7 @@ const ExerciseResultPage = ({
 					<DetailCol2>
 						<AnswerCard answer={questions[selectedQuestion]} />
 						<Card>
-							<H3>Lời giải chi tiết</H3>
+							<H3>Detail answer</H3>
 							<div>
 								{questions[selectedQuestion].answerDetail
 									.split('\n')
@@ -172,9 +177,9 @@ const ExerciseResultPage = ({
 				</DetailContent>
 			</Detail>
 			<SizedBox height={2.5} />
-			<ExerciseCarousel list={nationalExams} title='Bạn có thể quan tâm' />
-			<ExerciseCarousel list={nationalExams} title='Các bài tập nổi bật' />
-			<ExerciseCarousel list={nationalExams} title='Các bài tập mới nhất' />
+			<ExerciseCarousel list={nationalExams} title='Related exercises' />
+			<ExerciseCarousel list={nationalExams} title='Trending exercises' />
+			<ExerciseCarousel list={nationalExams} title='Newest exercises' />
 			<SizedBox height={7} />
 		</ContentContainer>
 	);

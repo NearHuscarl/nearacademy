@@ -1,40 +1,37 @@
 import range from 'lodash/range';
 import preview1 from '../../public/images/document-preview-1.jpg';
 import preview2 from '../../public/images/document-preview-2.jpg';
+import year from './year';
 
 const getImage = (i) => (i % 2 === 0 ? preview1 : preview2);
 
 const documents = range(0, 8).map((i) => ({
 	id: i,
-	title: '11 đề tham khảo môn Văn chốt thi THPT Quốc gia',
+	title: '11 popular sample tests for Literature national exams',
 	image: getImage(i),
-	subject: 'Ngữ Văn',
-	description:
-		'11 đề tham khảo môn Văn chốt thi THPT Quốc gia 2019 giúp thí sinh hệ thống lại kiến thức, luyện giải đề thi môn Ngữ Văn để chuẩn bị thật tốt cho kỳ thi THPT Quốc gia 2019 sắp tới.',
+	subject: 'Literature',
+	description: `11 sample tests for Literature National Exam ${year} will help students revise their knowledge and prepare for all Literature questions to ace the upcoming National Exam ${year}`,
 	publishDate: '31/10/2019',
 	views: 45020,
 	downloads: 40691,
 	tags: [
-		'Đề tham khảo môn Văn',
-		'Đề thi thử môn Văn',
-		'Ôn thi THPT QG môn Văn',
+		'Literature National Exams',
+		'Literature National Exam prep',
 	],
 }));
 
 export const sidebarDocuments = range(0, 5).map((i) => ({
 	id: i,
-	title: 'Đề thi tham khảo THPT Quốc gia 2019 môn Địa Lý của Bộ GD&ĐT',
+	title: `Sample Geology National Exam ${year}`,
 	image: getImage(i),
-	subject: 'Ngữ Văn',
-	description:
-		'11 đề tham khảo môn Văn chốt thi THPT Quốc gia 2019 giúp thí sinh hệ thống lại kiến thức, luyện giải đề thi môn Ngữ Văn để chuẩn bị thật tốt cho kỳ thi THPT Quốc gia 2019 sắp tới.',
+	subject: 'Literature',
+	description: `11 sample tests for Literature National Exam ${year} will help students revise their knowledge and prepare for all Literature questions to ace the upcoming National Exam ${year}`,
 	publishDate: '31/10/2019',
 	views: 45020,
 	downloads: 40691,
 	tags: [
-		'Đề tham khảo môn Văn',
-		'Đề thi thử môn Văn',
-		'Ôn thi THPT QG môn Văn',
+		'Literature National Exams',
+		'Literature National Exam prep',
 	],
 }));
 

@@ -18,6 +18,7 @@ import { getExercise } from '../store/storeHelper';
 const Content = styled.div`
 	display: flex;
 	margin-top: 2.5rem;
+	margin-bottom: 4rem;
 `;
 const ColumnLeft = styled.section`
 	margin-right: 1.6rem;
@@ -54,7 +55,7 @@ function ExerciseQuestionsPage({ exercise, setExerciseQuestions, questions }) {
 					as='div'
 					sub
 					className='mt-tn'
-				>{`${questionCount} câu hỏi - Trình độ ${difficulty}`}</H2>
+				>{`${questionCount} questions - ${difficulty}`}</H2>
 			</H2>
 			<Line />
 			<Content>
@@ -85,7 +86,7 @@ function ExerciseQuestionsPage({ exercise, setExerciseQuestions, questions }) {
 					<Ads />
 				</ColumnRight>
 			</Content>
-			<Pagination className='mt-lg' />
+			<Pagination />
 			<SizedBox height={7} />
 		</ContentContainer>
 	);

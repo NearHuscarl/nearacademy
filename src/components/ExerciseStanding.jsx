@@ -12,11 +12,11 @@ const List = styled.ul`
 const ListItem = styled.li`
 	display: grid;
 	grid-template-columns:
-		4rem minmax(10rem, 12.5rem) minmax(10rem, max-content)
-		minmax(14rem, 17rem) minmax(7.5rem, 11rem) 8rem 9rem;
+		4rem minmax(10rem, 25rem) minmax(10rem, 25rem)
+		minmax(7.5rem, 11rem) 9rem 9rem;
 	column-gap: 4.5rem;
 	align-items: center;
-	padding: 1rem .5rem;
+	padding: 1rem 0.5rem;
 
 	:nth-child(odd) {
 		background-color: ${appColors.greyLight0};
@@ -61,11 +61,10 @@ export function Rank({ info }) {
 			<div className='profile'>
 				<img src={info.avatar} alt='user avatar' />
 				<div className='profile__name'>
-					<Link to={`${routes.profile.path}/${info.id}`}>{info.id}</Link>
+					<Link to={`${routes.profile.path}/${info.id}`}>{info.name}</Link>
 					<Small>{`Level: ${info.level}`}</Small>
 				</div>
 			</div>
-			<Small>{info.name}</Small>
 			<Small>{info.school}</Small>
 			<Small>{info.province}</Small>
 			<Small>{info.score}</Small>
@@ -82,13 +81,12 @@ export default function ExerciseStanding({ className, list }) {
 	return (
 		<>
 			<Header>
-				<Bold>Vị thứ</Bold>
-				<Bold>Tài khoản</Bold>
-				<Bold>Họ và tên</Bold>
-				<Bold>Trường</Bold>
-				<Bold>Tỉnh/Thành phố</Bold>
-				<Bold>Số câu đúng</Bold>
-				<Bold>Thời gian</Bold>
+				<Bold>Rank</Bold>
+				<Bold>User</Bold>
+				<Bold>School</Bold>
+				<Bold>Location</Bold>
+				<Bold>True answers</Bold>
+				<Bold>Time</Bold>
 			</Header>
 			<List className={className}>
 				{list.map((u) => (

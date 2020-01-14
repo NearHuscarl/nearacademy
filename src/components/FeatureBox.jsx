@@ -29,7 +29,7 @@ const Features = styled.ul`
 export default function FeatureBox({ features }) {
 	return (
 		<Box>
-			<H2>Bạn sẽ được học những gì?</H2>
+			<H2>What you'll learn?</H2>
 			<Features>
 				{features.map((f, i) => {
 					const key = i;

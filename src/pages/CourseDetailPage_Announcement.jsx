@@ -20,7 +20,7 @@ const Body = styled.div`
 	margin: 2.5rem 0;
 `;
 const Heading3 = styled(H3)`
-    margin-bottom: 1.8rem;
+	margin-bottom: 1.8rem;
 `;
 
 function Post() {
@@ -30,19 +30,22 @@ function Post() {
 				<Avatar src={biologyTeacher.image} alt='teacher' />
 				<div>
 					<Bold>{biologyTeacher.name}</Bold>
-					<div>Đã đăng 1 tháng trước</div>
+					<div>Posted 1 month ago</div>
 				</div>
 			</Header>
 			<Body>
-				<div>Chào các em!</div>
+				<div>Hi all!</div>
 				<br />
 				<div>
-					Hy vọng với bài giảng đầu tiên này các em sẽ có được cái nhìn
-					tổng quan nhất về nội dung của khóa học này nhé! Chúc các em học
-					tập tốt! Thầy Thịnh Nam
+					Hi all!
+					I have been getting so many questions, so I will reply
+					globally now: I will submit a completely new and revamped course for NearAcademy's review next
+					Monday! From there, it will take 1-2 days until the course
+					launches! So there is no real date, but the course should be
+					about 1 week away now 🎉
 				</div>
 				<br />
-				<em>Thầy Thịnh Nam</em>
+				<em>Thịnh Nam</em>
 			</Body>
 		</article>
 	);
@@ -52,7 +55,7 @@ export default function CourseDetailPageAnnouncement() {
 	return (
 		<section>
 			<Post />
-			<Heading3>Bình luận</Heading3>
+			<Heading3>Comment</Heading3>
 			<CommentSection />
 		</section>
 	);

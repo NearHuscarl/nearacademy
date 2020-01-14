@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Countdown, { zeroPad } from 'react-countdown-now';
-import Button, { PrimaryWhiteButton, WhiteButton } from './Buttons';
+import Button, { WhiteButton } from './Buttons';
 import Card from './Card';
 import { setTimeTaken, startSetScore } from '../actions/exerciseResult';
 import styled, { appColors } from '../styles';
@@ -52,7 +52,7 @@ const ProgressBar = styled(TextSpan)`
 		transition: width 0.25s;
 	}
 `;
-const QButton = styled(PrimaryWhiteButton)`
+const QButton = styled(WhiteButton)`
 	width: 3rem;
 	height: 3rem;
 	padding: 0;
@@ -110,10 +110,10 @@ function QuestionProgress({
 
 	return (
 		<Container>
-			<TextSpan>Thời gian làm bài</TextSpan>
+			<TextSpan>Time left</TextSpan>
 			<Time>{Counter}</Time>
 			<Stats>
-				{`Đã trả lời ${questionsAnswered}/${questionArray.length} câu (${progress}%)`}
+				{`${questionsAnswered}/${questionArray.length} questions answered (${progress}%)`}
 			</Stats>
 			<ProgressBar progress={progress} />
 			{questionArray.map(({ answer }, index) => {
@@ -126,7 +126,7 @@ function QuestionProgress({
 			})}
 			<Actions>
 				<WhiteButton type='button' onClick={resetExercise}>
-					Làm lại
+					Restart
 				</WhiteButton>
 				<Button
 					type='button'
@@ -136,7 +136,7 @@ function QuestionProgress({
 						history.push(`${routes.exercise.path}/${exerciseId}/result`);
 					}}
 				>
-					Nộp bài
+					Submit
 				</Button>
 			</Actions>
 		</Container>

@@ -30,7 +30,7 @@ const Content = styled.div`
 	.score {
 		font-size: 3.6rem;
 		font-weight: 600;
-		color: ${appColors.red};
+		color: ${appColors.secondary};
 	}
 
 	.date {
@@ -63,22 +63,22 @@ const Bottom = styled.div`
 export default function ScoreCard() {
 	return (
 		<Container>
-			<H4>Thành tích cá nhân</H4>
+			<H4>Personal Best</H4>
 			<Line dark />
 			<Content>
-				<div>Kết quả cao nhất</div>
+				<div>Highest Score</div>
 				<div className='score'>30/30</div>
-				<div>10 phút 56 giây</div>
+				<div>10 mins 56 secs</div>
 				<div className='date'>31/10/2019</div>
 			</Content>
 			<Line dark noMargin />
 			<Bottom>
 				<div>
-					<div className='label'>Số lần làm bài</div>
+					<div className='label'>Total attempts</div>
 					<div className='value'>10</div>
 				</div>
 				<div>
-					<div className='label'>Điểm kinh nghiệm</div>
+					<div className='label'>Experience score</div>
 					<div className='value'>600</div>
 				</div>
 			</Bottom>

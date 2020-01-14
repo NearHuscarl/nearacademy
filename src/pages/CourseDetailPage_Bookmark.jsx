@@ -4,24 +4,21 @@ import { SearchBar } from '../components/Input';
 import { Bold, EllipsisButton, SizedBox } from '../components/Common';
 import styled from '../styles';
 
-const flags = [
+const bookmarks = [
 	{
 		time: '00:50',
-		date: '5 phút trước',
-		comment:
-			'Thầy Thịnh Nam giới thiệu về lộ trình học của chuyên đề Super-1',
+		date: '5 minutes ago',
+		comment: "Thịnh Nam's introduction to Super-1 roadmap",
 	},
 	{
 		time: '03:20',
-		date: '2 phút trước',
-		comment:
-			'Thầy Thịnh Nam giới thiệu về lộ trình học của chuyên đề Super-plus',
+		date: '2 minutes ago',
+		comment: "Thịnh Nam's introduction to Super-plus roadmap",
 	},
 	{
 		time: '05:00',
-		date: '1 phút trước',
-		comment:
-			'Thầy Thịnh Nam giới thiệu về lộ trình học của chuyên đề Super-2',
+		date: '1 minutes ago',
+		comment: "Thịnh Nam's introduction to Super-2 roadmap",
 	},
 ];
 
@@ -48,15 +45,15 @@ const FlagBody = styled.div`
 	}
 `;
 
-export default function CourseDetailPageFlag() {
+export default function CourseDetailPageBookmark() {
 	return (
 		<div>
 			<Header>
-				<H1Small>{`Đánh dấu (${flags.length})`}</H1Small>
-				<SearchBar placeholder='Tìm nội dung đánh dấu...' width={30} />
+				<H1Small>{`Bookmarks (${bookmarks.length})`}</H1Small>
+				<SearchBar placeholder='Find bookmarks...' width={30} />
 			</Header>
 			<ul>
-				{flags.map((f, i) => {
+				{bookmarks.map((f, i) => {
 					const key = i;
 					return (
 						<FlagItem key={key}>

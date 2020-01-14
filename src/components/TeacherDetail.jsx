@@ -48,7 +48,7 @@ const Media = styled.div`
 	column-gap: 1rem;
 	grid-template-columns: repeat(4, 1fr);
 `;
-const Paragraph = styled.div`
+const Paragraph = styled(FormattedText)`
 	margin-top: 1rem;
 	white-space: pre-line;
 	line-height: 1.7;
@@ -57,7 +57,7 @@ const Paragraph = styled.div`
 export default function TeacherDetail({ teacher }) {
 	return (
 		<>
-			<Heading>Giới thiệu về giáo viên</Heading>
+			<Heading>About teacher</Heading>
 			<Container>
 				<ColLeft>
 					<Avatar src={teacher.image} alt='teacher' />

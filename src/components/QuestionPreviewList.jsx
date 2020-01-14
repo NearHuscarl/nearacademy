@@ -20,10 +20,10 @@ const SideNumber = styled.div`
 	font-size: 1.6rem;
 `;
 const SideText = styled.div`
-	font-size: 1rem;
+	font-size: 1.2rem;
 `;
 const SideSubtext = styled.div`
-	font-size: 0.8rem;
+	font-size: 1rem;
 `;
 
 const Subject = styled.div`
@@ -61,16 +61,16 @@ function QuestionPreviewListItem({ question }) {
 		<ListItem>
 			<Side>
 				<SideNumber>{votes.toLocaleString()}</SideNumber>
-				<SideText>bình chọn</SideText>
+				<SideText>Votes</SideText>
 				<SideNumber>{answers}</SideNumber>
-				<SideText>câu trả lời</SideText>
-				<SideSubtext>{`${views.toLocaleString()} lượt xem`}</SideSubtext>
+				<SideText>Answers</SideText>
+				<SideSubtext>{`${views.toLocaleString()} views`}</SideSubtext>
 			</Side>
 			<div>
 				<H3>
 					<Link to='/questions/001'>{title}</Link>
 				</H3>
-				<Subject>{`Môn ${subject}`}</Subject>
+				<Subject>{subject}</Subject>
 				<Description>{description}</Description>
 				<Bottom>
 					<TagGroup>

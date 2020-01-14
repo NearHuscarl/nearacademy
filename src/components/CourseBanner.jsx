@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import VideoPlayer from './VideoPlayer';
-import Button, { PrimaryWhiteButton } from './Buttons';
+import Button, { WhiteButton } from './Buttons';
 import { Link, Bold, SizedBox } from './Common';
 import { H4 } from './Headings';
 import styled, { appColors, theme } from '../styles';
@@ -38,7 +38,7 @@ const Banner = styled.div`
 	}
 `;
 const Price = styled.span`
-	color: ${appColors.red};
+	color: ${appColors.secondary};
 	margin-right: 1rem;
 	font-weight: 600;
 	font-size: 2.2rem;
@@ -57,32 +57,27 @@ export default function CourseBanner({ course }) {
 					<strike>{`${course.originalPrice.toLocaleString()}đ`}</strike>
 				</div>
 				<div className='discount'>
-					<span>Ưu đãi còn </span>
-					<Bold as='span'>3 ngày </Bold>
-					<span>nữa</span>
+					<Bold as='span'>3 </Bold>
+					<span>days left for your discount</span>
 				</div>
 				<Button
 					type='button'
 					onClick={() => history.push(routes.cart.path)}
 				>
-					Thêm vào giỏ hàng
+					Add to cart
 				</Button>
-				<PrimaryWhiteButton type='button'>Mua ngay</PrimaryWhiteButton>
+				<WhiteButton type='button'>Buy now</WhiteButton>
 				<SizedBox height={1} />
 				<div>
-					<H4>Môn học</H4>
+					<H4>Subject</H4>
 					<ul>
-						<li>🢒 Sinh học</li>
+						<li>🢒 {course.subject}</li>
 					</ul>
-					<H4>Ngày hết hạn</H4>
+					<H4>This course includes</H4>
 					<ul>
-						<li>🢒 00:00, 30-06-2020</li>
-					</ul>
-					<H4>Khóa học bao gồm</H4>
-					<ul>
-						<li>🢒 24 giờ xem bài giảng</li>
-						<li>🢒 18 bài viết</li>
-						<li>🢒 20 bài tập trắc nghiệm</li>
+						<li>🢒 24 hours on-demand video </li>
+						<li>🢒 {course.totalVideo} lectures</li>
+						<li>🢒 20 sample exams</li>
 					</ul>
 				</div>
 			</div>

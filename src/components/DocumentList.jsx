@@ -55,14 +55,14 @@ export default function DocumentList({ list }) {
 						<H4>
 							<Link to={`${routes.document.path}/001`}>{e.title}</Link>
 						</H4>
-						<Bold>{`Môn ${e.subject}`}</Bold>
+						<Bold>{`Subject: ${e.subject}`}</Bold>
 						<Description>{e.description}</Description>
 						<Stats>
-							<span>Phát hành: </span>
+							<span>Date: </span>
 							<Bold as='span'>{e.publishDate} </Bold>
-							<span> - Lượt xem: </span>
+							<span> - Views: </span>
 							<Bold as='span'>{e.views.toLocaleString()}</Bold>
-							<span> - Lượt tải: </span>
+							<span> - Downloads: </span>
 							<Bold as='span'>{e.downloads.toLocaleString()}</Bold>
 						</Stats>
 						<TagGroup>

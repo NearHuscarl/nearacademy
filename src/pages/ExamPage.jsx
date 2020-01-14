@@ -22,8 +22,8 @@ const ExamPage = ({
 		weeklyStanding={weeklyStanding}
 		filter={
 			<Filters
-				title='Danh sách đề thi thử'
-				subTitle='Có tất cả 300 đề thi thử trong danh sách'
+				title='All Exams'
+				subTitle='There are more than 300 exams here'
 			/>
 		}
 	/>
