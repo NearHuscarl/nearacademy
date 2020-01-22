@@ -60,42 +60,42 @@ export default function LoginPage() {
 			<Breadcrumb path={[routes.home, routes.login]} />
 			<Container>
 				<img src={authImage} alt='auth' />
-				<Heading>Đăng nhập tài khoản</Heading>
+				<Heading>Login</Heading>
 				<SubHeading>
-					Để có thể sử dụng những chức năng chỉ có tại NearAcademy
+					To access to all available features from NearAcademy
 				</SubHeading>
-				<InputHint>Tên đăng nhập</InputHint>
+				<InputHint>Name</InputHint>
 				<InputGroup>
-					<Input placeholder='Tên đăng nhập của bạn' />
+					<Input placeholder='Your name' />
 				</InputGroup>
-				<InputHint>Mật khẩu</InputHint>
+				<InputHint>Password</InputHint>
 				<InputGroup>
-					<Input type='password' placeholder='Mật khẩu của bạn' />
+					<Input type='password' placeholder='Your password' />
 				</InputGroup>
 				<Button
 					className='submit'
 					type='button'
 					onClick={() => history.push(routes.home.path)}
 				>
-					Đăng nhập
+					Login
 				</Button>
 				<div>
-					<span>Chưa có tài khoản? </span>
+					<span>Don't have an account? </span>
 					<ButtonText
 						className='register'
 						type='button'
 						onClick={() => history.push(routes.register.path)}
 					>
-						Đăng ký
+						Signup
 					</ButtonText>
-					<span> ngay</span>
+					<span> now</span>
 				</div>
 				<SizedBox height={0.5} />
 				<ButtonText
 					type='button'
 					onClick={() => history.push(routes.forgotPassword.path)}
 				>
-					Bạn đã quên mật khẩu?
+					Forgot your password?
 				</ButtonText>
 			</Container>
 		</Main>

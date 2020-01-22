@@ -13,24 +13,20 @@ export default function ChangePasswordPage() {
 			<Breadcrumb path={[routes.home, routes.changePassword]} />
 			<Container>
 				<img src={authImage} alt='auth' />
-				<Heading>Thay đổi mật khẩu</Heading>
-				<SubHeading>Thay đổi lại mật khẩu của tài khoản</SubHeading>
-				<InputHint>Mật khẩu cũ</InputHint>
-				<InputGroup>
-					<Input type='password' placeholder='Mật khẩu cũ của tài khoản' />
-				</InputGroup>
-				<InputHint>Mật khẩu mới</InputHint>
+				<Heading>Reset Password</Heading>
+				<SubHeading>Set a new password for your account</SubHeading>
+				<InputHint>New password</InputHint>
 				<InputGroup>
 					<Input
 						type='password'
-						placeholder='Mật khẩu mới của tài khoản'
+						placeholder='Your new password'
 					/>
 				</InputGroup>
-				<InputHint>Xác nhận mật khẩu mới</InputHint>
+				<InputHint>Confirm new password</InputHint>
 				<InputGroup>
 					<Input
 						type='password'
-						placeholder='Xác nhận mật khẩu mới của tài khoản'
+						placeholder='Your confirm new password'
 					/>
 				</InputGroup>
 				<Button
@@ -38,7 +34,7 @@ export default function ChangePasswordPage() {
 					type='button'
 					onClick={() => history.push(routes.home.path)}
 				>
-					Thay đổi mật khẩu
+					Reset Password
 				</Button>
 			</Container>
 		</Main>

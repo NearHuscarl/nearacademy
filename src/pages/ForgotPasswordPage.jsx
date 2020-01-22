@@ -13,18 +13,18 @@ export default function ForgotPasswordPage() {
 			<Breadcrumb path={[routes.home, routes.forgotPassword]} />
 			<Container>
 				<img src={authImage} alt='auth' />
-				<Heading>Quên mật khẩu</Heading>
-				<SubHeading>Gửi email xác nhận khôi phục lại mật khẩu</SubHeading>
-				<InputHint>Địa chỉ email</InputHint>
+				<Heading>Reset your password</Heading>
+				<SubHeading>We will send a reset code to your recovery email to reset your password</SubHeading>
+				<InputHint>Email</InputHint>
 				<InputGroup>
-					<Input placeholder='Địa chỉ email của bạn' />
+					<Input placeholder='Your email address' />
 				</InputGroup>
 				<Button
 					className='submit'
 					type='button'
 					onClick={() => history.push(routes.changePassword.path)}
 				>
-					Gửi email xác nhận
+					Send Validation Code
 				</Button>
 			</Container>
 		</Main>

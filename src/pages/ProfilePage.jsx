@@ -59,23 +59,23 @@ const ProfilePage = ({ match }) => {
 							<H1>{user.id}</H1>
 						</li>
 						<li>
-							<Bold as='span'>Họ và tên: </Bold>
+							<Bold as='span'>Name: </Bold>
 							<span>{user.name}</span>
 						</li>
 						<li>
-							<Bold as='span'>Ngày sinh: </Bold>
+							<Bold as='span'>Birthday: </Bold>
 							<span>{user.birthday}</span>
 						</li>
 						<li>
-							<Bold as='span'>Trường: </Bold>
+							<Bold as='span'>School: </Bold>
 							<span>{user.school}</span>
 						</li>
 						<li>
-							<Bold as='span'>Tỉnh/Thành phố: </Bold>
+							<Bold as='span'>Province: </Bold>
 							<span>{user.province}</span>
 						</li>
 						<li>
-							<Bold as='span'>Ngày tham gia: </Bold>
+							<Bold as='span'>Register date: </Bold>
 							<span>{user.registerDate}</span>
 						</li>
 					</ul>

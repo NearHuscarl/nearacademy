@@ -33,62 +33,59 @@ export default function RegisterPage() {
 			<Breadcrumb path={[routes.home, routes.register]} />
 			<Container>
 				<img src={authImage} alt='auth' />
-				<Heading>Đăng ký tài khoản</Heading>
+				<Heading>Register</Heading>
 				<SubHeading>
-					Để có thể sử dụng những chức năng chỉ có tại NearAcademy
+					To access to all available features from NearAcademy
 				</SubHeading>
-				<InputHint>Tên đăng nhập</InputHint>
+				<InputHint>Name</InputHint>
 				<InputGroup>
-					<Input placeholder='Tên đăng nhập của bạn' />
+					<Input placeholder='Your name' />
 				</InputGroup>
-				<InputHint>Họ và tên đầy đủ</InputHint>
+				<InputHint>Full name</InputHint>
 				<InputGroup>
-					<Input placeholder='Họ và tên đầy đủ của bạn' />
+					<Input placeholder='Your full name' />
 				</InputGroup>
-				<InputHint>Địa chỉ email</InputHint>
+				<InputHint>Email</InputHint>
 				<InputGroup>
-					<Input placeholder='Địa chỉ email của bạn' />
+					<Input placeholder='Your email address' />
 				</InputGroup>
-				<InputHint>Tỉnh/Thành phố</InputHint>
+				<InputHint>Province</InputHint>
 				<Select
 					value={province}
 					onChange={(value) => setProvince(() => value)}
 					options={provinceOptions}
 				/>
-				<InputHint>Trường</InputHint>
+				<InputHint>School</InputHint>
 				<Select
 					value={school}
 					onChange={(value) => setSchool(() => value)}
 					options={schoolOptions}
 				/>
-				<InputHint>Mật khẩu</InputHint>
+				<InputHint>Password</InputHint>
 				<InputGroup>
-					<Input type='password' placeholder='Mật khẩu của bạn' />
+					<Input type='password' placeholder='Your password' />
 				</InputGroup>
-				<InputHint>Xác nhận lại mật khẩu</InputHint>
+				<InputHint>Confirm password</InputHint>
 				<InputGroup>
-					<Input
-						type='password'
-						placeholder='Xác nhận lại mật khẩu mới của bạn'
-					/>
+					<Input type='password' placeholder='Your confirm password' />
 				</InputGroup>
 				<Button
 					className='submit'
 					type='button'
 					onClick={() => history.push(routes.home.path)}
 				>
-					Đăng ký
+					Register
 				</Button>
 				<div>
-					<span>Đã có tài khoản? </span>
+					<span>Have an account? </span>
+					<span>Login </span>
 					<ButtonText
 						className='register'
 						type='button'
 						onClick={() => history.push(routes.login.path)}
 					>
-						Đăng nhập
+						here
 					</ButtonText>
-					<span> ngay</span>
 				</div>
 			</Container>
 		</Main>
